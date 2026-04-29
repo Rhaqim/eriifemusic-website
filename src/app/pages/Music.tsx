@@ -1,45 +1,45 @@
 import { useState } from 'react';
+import { useTranslation } from 'react-i18next';
 import { ReleaseCard } from '../components/ReleaseCard';
+import { AnimatedSection, StaggerContainer, staggerItem } from '../components/AnimatedSection';
+import { releases } from '../../data/content';
+import { motion } from 'motion/react';
+import type { ReleaseType } from '../../data/types';
 
-type ReleaseType = 'all' | 'album' | 'EP' | 'single' | 'live';
+type FilterValue = 'all' | ReleaseType;
 
 export function Music() {
-  const [filter, setFilter] = useState<ReleaseType>('all');
+  const [filter, setFilter] = useState<FilterValue>('all');
+  const { t } = useTranslation();
 
-  const releases = [
-    { slug: 'tender-hearts', title: 'Tender Hearts', type: 'EP' as const, year: 2026, coverImage: '', description: 'Five songs about love, memory, and finding softness.' },
-    { slug: 'quiet-devotion', title: 'Quiet Devotion', type: 'single' as const, year: 2026, coverImage: '', description: 'A meditation on faith and closeness.' },
-    { slug: 'beloved', title: 'Beloved', type: 'single' as const, year: 2025, coverImage: '', description: 'An ode to the ones we carry with us.' },
-    { slug: 'letters-home', title: 'Letters Home', type: 'album' as const, year: 2025, coverImage: '', description: 'Songs written during a season of reflection.' },
-    { slug: 'morning-light', title: 'Morning Light', type: 'single' as const, year: 2025, coverImage: '', description: 'About hope arriving quietly, like dawn.' },
-    { slug: 'live-at-terra', title: 'Live at Terra Kulture', type: 'live' as const, year: 2024, coverImage: '', description: 'An intimate evening of songs and stories.' }
-  ];
+  const filteredReleases =
+    filter === 'all' ? releases : releases.filter(release => release.type === filter);
 
-  const filteredReleases = filter === 'all' ? releases : releases.filter(release => release.type === filter);
-
-  const filters: { label: string; value: ReleaseType }[] = [
-    { label: 'All', value: 'all' },
-    { label: 'Albums', value: 'album' },
-    { label: 'EPs', value: 'EP' },
-    { label: 'Singles', value: 'single' }
+  const filters: { label: string; value: FilterValue }[] = [
+    { label: t('music.filter_all'), value: 'all' },
+    { label: t('music.filter_albums'), value: 'album' },
+    { label: t('music.filter_eps'), value: 'EP' },
+    { label: t('music.filter_singles'), value: 'single' },
   ];
 
   return (
     <div className="min-h-screen bg-deep-espresso">
       <section className="py-20 md:py-28">
         <div className="max-w-[1200px] mx-auto px-6 lg:px-8">
-          <h1 className="font-['Crimson_Pro'] text-5xl md:text-6xl text-soft-ivory mb-4">
-            Music
-          </h1>
-          <p className="text-xl text-parchment/80 max-w-2xl">
-            A collection of songs written like letters—about love, faith, memory, and the tender parts of being human.
-          </p>
+          <AnimatedSection direction="up">
+            <h1 className="font-['Crimson_Pro'] text-5xl md:text-6xl text-soft-ivory mb-4">
+              {t('music.title')}
+            </h1>
+            <p className="text-xl text-parchment/80 max-w-2xl">
+              {t('music.subtitle')}
+            </p>
+          </AnimatedSection>
         </div>
       </section>
 
-      <section className="pb-20">
+      <section className="pb-24">
         <div className="max-w-[1200px] mx-auto px-6 lg:px-8">
-          <div className="flex flex-wrap gap-2 mb-12">
+          <AnimatedSection direction="up" className="flex flex-wrap gap-2 mb-12">
             {filters.map(({ label, value }) => (
               <button
                 key={value}
@@ -53,25 +53,25 @@ export function Music() {
                 {label}
               </button>
             ))}
-          </div>
+          </AnimatedSection>
 
           {filteredReleases.length > 0 ? (
-            <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+            <StaggerContainer className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
               {filteredReleases.map(release => (
-                <ReleaseCard key={release.slug} {...release} />
+                <motion.div key={release.slug} variants={staggerItem}>
+                  <ReleaseCard {...release} />
+                </motion.div>
               ))}
-            </div>
+            </StaggerContainer>
           ) : (
             <div className="text-center py-16">
-              <p className="text-parchment/60 text-lg mb-4">No {filter === 'all' ? 'releases' : filter + 's'} found.</p>
-              {filter !== 'all' && (
-                <button
-                  onClick={() => setFilter('all')}
-                  className="text-burnished-bronze hover:text-soft-ivory transition-colors"
-                >
-                  View all releases →
-                </button>
-              )}
+              <p className="text-parchment/60 text-lg mb-4">{t('music.no_results')}</p>
+              <button
+                onClick={() => setFilter('all')}
+                className="text-burnished-bronze hover:text-soft-ivory transition-colors"
+              >
+                {t('music.view_all')}
+              </button>
             </div>
           )}
         </div>
@@ -79,3 +79,4 @@ export function Music() {
     </div>
   );
 }
+

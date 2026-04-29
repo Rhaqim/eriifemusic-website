@@ -1,4 +1,7 @@
 import { Link } from 'react-router';
+import { useTranslation } from 'react-i18next';
+import { motion } from 'motion/react';
+import { Play, ArrowRight } from 'lucide-react';
 import { Button } from '../components/Button';
 import { NewsletterSignup } from '../components/NewsletterSignup';
 import { ReleaseCard } from '../components/ReleaseCard';
@@ -6,203 +9,227 @@ import { LetterCard } from '../components/LetterCard';
 import { ShowCard } from '../components/ShowCard';
 import { StreamingLinks } from '../components/StreamingLinks';
 import { FanNotesSection } from '../components/FanNotesSection';
-import { Play } from 'lucide-react';
+import { AnimatedSection, StaggerContainer, staggerItem } from '../components/AnimatedSection';
+import { releases, letters, shows, fanNotes } from '../../data/content';
 
 export function Home() {
-  const releases = [
-    { slug: 'tender-hearts', title: 'Tender Hearts', type: 'EP' as const, year: 2026, coverImage: '', description: 'Five songs about love, memory, and finding softness.' },
-    { slug: 'quiet-devotion', title: 'Quiet Devotion', type: 'single' as const, year: 2026, coverImage: '', description: 'A meditation on faith and closeness.' },
-    { slug: 'letters-home', title: 'Letters Home', type: 'album' as const, year: 2025, coverImage: '', description: 'Songs written during a season of reflection.' }
-  ];
+  const { t } = useTranslation();
 
-  const letters = [
-    {
-      slug: 'on-writing-love-songs',
-      title: 'On Writing Love Songs',
-      category: 'Reflections',
-      date: '2026-04-15',
-      excerpt: 'I used to think love songs had to be complicated. That they needed metaphors stacked on metaphors, hidden meanings, coded language. But the longer I write, the more I realize that simplicity holds more truth.',
-      readTime: 4
-    },
-    {
-      slug: 'notes-from-the-studio',
-      title: 'Notes from the Studio',
-      category: 'Behind the Songs',
-      date: '2026-04-01',
-      excerpt: 'We recorded Tender Hearts in a small room in Lagos, with afternoon light coming through the windows. There was something about the warmth of that space that shaped every note.',
-      readTime: 3
-    }
-  ];
-
-  const upcomingShows = [
-    {
-      date: '2026-06-15',
-      city: 'Lagos',
-      venue: 'Terra Kulture',
-      country: 'Nigeria',
-      ticketUrl: '#',
-      status: 'upcoming' as const
-    }
-  ];
-
-  const fanNotes = [
-    {
-      id: '1',
-      message: 'Your songs found me in a quiet season and stayed.',
-      name: 'Adanna',
-      city: 'Abuja',
-      date: '2026-04-20'
-    },
-    {
-      id: '2',
-      message: 'This music feels like a letter I did not know I needed.',
-      name: 'Marcus',
-      city: 'London',
-      date: '2026-04-18'
-    },
-    {
-      id: '3',
-      message: 'Thank you for making softness feel strong.',
-      name: 'Chiamaka',
-      city: 'Lagos',
-      date: '2026-04-15'
-    },
-    {
-      id: '4',
-      message: 'There is so much warmth in these songs.',
-      name: 'Samuel',
-      city: 'Accra',
-      date: '2026-04-12'
-    },
-    {
-      id: '5',
-      message: 'Your music sounds like honesty.',
-      name: 'Zara',
-      city: 'Toronto',
-      date: '2026-04-10'
-    }
-  ];
+  const featuredReleases = releases.slice(0, 3);
+  const featuredLetters = letters.slice(0, 2);
+  const upcomingShows = shows.filter(s => s.status === 'upcoming').slice(0, 3);
+  const featuredNotes = fanNotes.filter(n => n.status === 'featured' || n.status === 'approved');
 
   return (
     <div className="min-h-screen bg-deep-espresso">
-      <section className="relative py-24 md:py-40 overflow-hidden">
-        <div className="absolute inset-0 bg-gradient-to-b from-warm-charcoal/40 via-transparent to-deep-espresso"></div>
-        <div className="max-w-[1200px] mx-auto px-6 lg:px-8 relative z-10">
+
+      {/* ── Hero ─────────────────────────────────────────────── */}
+      <section className="relative min-h-[92vh] flex items-center overflow-hidden">
+        {/* Ambient gradient background */}
+        <div className="absolute inset-0">
+          <div className="hero-ambient absolute inset-0 bg-gradient-to-br from-oxblood/20 via-smoky-plum/15 to-deep-espresso opacity-90" />
+          <div className="absolute inset-0 bg-gradient-to-t from-deep-espresso via-deep-espresso/40 to-transparent" />
+        </div>
+
+        <div className="max-w-[1200px] mx-auto px-6 lg:px-8 relative z-10 py-32">
           <div className="grid lg:grid-cols-2 gap-20 items-center">
             <div>
-              <h1 className="font-['Crimson_Pro'] text-5xl md:text-7xl text-soft-ivory mb-6">
-                Songs written like letters
-              </h1>
-              <p className="text-xl text-parchment/80 mb-10 leading-relaxed">
-                Warm music for open hearts. Romantic, reflective songs about love, faith, memory, and becoming.
-              </p>
-              <div className="flex flex-col sm:flex-row gap-4 mb-10">
+              {/* Label */}
+              <motion.p
+                initial={{ opacity: 0, y: 16 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.6 }}
+                className="text-xs text-burnished-bronze uppercase tracking-[0.2em] mb-6"
+              >
+                Eri Ife
+              </motion.p>
+
+              {/* Headline */}
+              <motion.h1
+                initial={{ opacity: 0, y: 24 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.8, delay: 0.15 }}
+                className="font-['Crimson_Pro'] text-5xl md:text-7xl text-soft-ivory mb-6 leading-[1.05]"
+              >
+                {t('hero.tagline')}
+              </motion.h1>
+
+              <motion.p
+                initial={{ opacity: 0, y: 24 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.8, delay: 0.3 }}
+                className="text-xl text-parchment/75 mb-10 leading-relaxed max-w-lg"
+              >
+                {t('hero.description')}
+              </motion.p>
+
+              <motion.div
+                initial={{ opacity: 0, y: 24 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.8, delay: 0.45 }}
+                className="flex flex-col sm:flex-row gap-4 mb-12"
+              >
                 <Button variant="primary" size="lg">
-                  <Play size={20} fill="currentColor" />
-                  Listen Now
+                  <Play size={18} fill="currentColor" />
+                  {t('hero.cta_listen')}
                 </Button>
-                <Button variant="secondary" size="lg">
-                  Read a Letter
-                </Button>
-              </div>
-              <StreamingLinks />
+                <Link to="/letters">
+                  <Button variant="secondary" size="lg">{t('hero.cta_letters')}</Button>
+                </Link>
+              </motion.div>
+
+              <motion.div
+                initial={{ opacity: 0 }}
+                animate={{ opacity: 1 }}
+                transition={{ duration: 1, delay: 0.7 }}
+              >
+                <StreamingLinks />
+              </motion.div>
             </div>
 
-            <div className="aspect-[4/5] rounded bg-gradient-to-br from-cocoa-brown via-smoky-plum/50 to-oxblood/60 shadow-2xl"></div>
+            {/* Hero visual placeholder */}
+            <motion.div
+              initial={{ opacity: 0, scale: 0.96 }}
+              animate={{ opacity: 1, scale: 1 }}
+              transition={{ duration: 1.2, delay: 0.2, ease: [0.25, 0.1, 0.25, 1] }}
+              className="hidden lg:block aspect-[4/5] rounded-lg bg-gradient-to-br from-cocoa-brown via-smoky-plum/50 to-oxblood/60 shadow-2xl relative overflow-hidden"
+            >
+              <div className="absolute inset-0 bg-gradient-to-t from-deep-espresso/30 to-transparent" />
+            </motion.div>
           </div>
         </div>
+
+        {/* Scroll indicator */}
+        <motion.div
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          transition={{ delay: 1.2, duration: 0.8 }}
+          className="absolute bottom-8 left-1/2 -translate-x-1/2 flex flex-col items-center gap-2"
+        >
+          <div className="w-px h-12 bg-gradient-to-b from-transparent to-burnished-bronze/40" />
+        </motion.div>
       </section>
 
+      {/* ── Note from Eri ─────────────────────────────────────── */}
       <section className="py-24 bg-warm-charcoal">
         <div className="max-w-[1200px] mx-auto px-6 lg:px-8">
-          <div className="max-w-3xl mx-auto">
-            <h2 className="font-['Crimson_Pro'] text-4xl text-soft-ivory mb-8">
-              A note from Eri
-            </h2>
-            <div className="text-lg text-parchment/80 space-y-6 leading-relaxed">
-              <p>
-                I've been thinking a lot about what it means to create music that feels like home. Not just something you listen to—but something you return to. A place where tenderness is welcome, where honesty matters more than hype, where the small moments get their space.
+          <AnimatedSection direction="up">
+            <div className="max-w-3xl mx-auto">
+              <p className="text-xs text-burnished-bronze uppercase tracking-[0.2em] mb-6">
+                {t('home.note_from_eri')}
               </p>
-              <p>
-                These songs are written like letters. Some to people I love. Some to God. Some to versions of myself I'm still getting to know. I hope they meet you wherever you are.
-              </p>
+              <h2 className="font-['Crimson_Pro'] text-4xl md:text-5xl text-soft-ivory mb-8 leading-tight">
+                {t('home.note_body')}
+              </h2>
+              <Link to="/about" className="inline-flex items-center gap-2 text-burnished-bronze hover:text-soft-ivory transition-colors text-sm">
+                {t('common.view_all')} <ArrowRight size={14} />
+              </Link>
             </div>
-            <Link to="/about" className="inline-block mt-8 text-burnished-bronze hover:text-soft-ivory transition-colors">
-              Read more about the music →
-            </Link>
-          </div>
+          </AnimatedSection>
         </div>
       </section>
 
+      {/* ── Latest Releases ───────────────────────────────────── */}
       <section className="py-24 bg-deep-espresso">
         <div className="max-w-[1200px] mx-auto px-6 lg:px-8">
-          <div className="flex items-end justify-between mb-12">
+          <AnimatedSection direction="up" className="flex items-end justify-between mb-12">
             <div>
-              <h2 className="font-['Crimson_Pro'] text-4xl text-soft-ivory mb-2">
-                Music
+              <p className="text-xs text-burnished-bronze uppercase tracking-[0.2em] mb-3">
+                {t('home.new_music')}
+              </p>
+              <h2 className="font-['Crimson_Pro'] text-4xl text-soft-ivory">
+                {t('home.latest_releases')}
               </h2>
-              <p className="text-parchment/70">A collection of songs, stories, and quiet moments.</p>
             </div>
-            <Link to="/music" className="hidden md:block text-burnished-bronze hover:text-soft-ivory transition-colors">
-              View all →
+            <Link to="/music" className="hidden md:flex items-center gap-2 text-burnished-bronze hover:text-soft-ivory transition-colors text-sm">
+              {t('home.view_all_music')} <ArrowRight size={14} />
             </Link>
-          </div>
+          </AnimatedSection>
 
-          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
-            {releases.map(release => (
-              <ReleaseCard key={release.slug} {...release} />
+          <StaggerContainer className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+            {featuredReleases.map(release => (
+              <motion.div key={release.slug} variants={staggerItem}>
+                <ReleaseCard {...release} />
+              </motion.div>
             ))}
+          </StaggerContainer>
+
+          <div className="mt-8 md:hidden">
+            <Link to="/music" className="flex items-center gap-2 text-burnished-bronze hover:text-soft-ivory transition-colors text-sm">
+              {t('home.view_all_music')} <ArrowRight size={14} />
+            </Link>
           </div>
         </div>
       </section>
 
+      {/* ── Letters ───────────────────────────────────────────── */}
       <section className="py-24 bg-warm-charcoal">
         <div className="max-w-[1200px] mx-auto px-6 lg:px-8">
-          <div className="flex items-end justify-between mb-12">
+          <AnimatedSection direction="up" className="flex items-end justify-between mb-12">
             <div>
-              <h2 className="font-['Crimson_Pro'] text-4xl text-soft-ivory mb-2">
-                Letters
+              <p className="text-xs text-burnished-bronze uppercase tracking-[0.2em] mb-3">
+                {t('nav.letters')}
+              </p>
+              <h2 className="font-['Crimson_Pro'] text-4xl text-soft-ivory">
+                {t('letters.subtitle').split('—')[0].trim()}
               </h2>
-              <p className="text-parchment/70">Thoughts, stories, and notes from the journey.</p>
             </div>
-            <Link to="/letters" className="hidden md:block text-burnished-bronze hover:text-soft-ivory transition-colors">
-              Read all →
+            <Link to="/letters" className="hidden md:flex items-center gap-2 text-burnished-bronze hover:text-soft-ivory transition-colors text-sm">
+              {t('home.view_all_letters')} <ArrowRight size={14} />
             </Link>
-          </div>
+          </AnimatedSection>
 
-          <div className="grid md:grid-cols-2 gap-6">
-            {letters.map(letter => (
-              <LetterCard key={letter.slug} {...letter} />
+          <StaggerContainer className="grid md:grid-cols-2 gap-6">
+            {featuredLetters.map(letter => (
+              <motion.div key={letter.slug} variants={staggerItem}>
+                <LetterCard {...letter} />
+              </motion.div>
             ))}
-          </div>
+          </StaggerContainer>
         </div>
       </section>
 
-      <FanNotesSection notes={fanNotes} />
+      {/* ── Fan Notes ─────────────────────────────────────────── */}
+      <FanNotesSection notes={featuredNotes} />
 
+      {/* ── Upcoming Shows ───────────────────────────────────── */}
       {upcomingShows.length > 0 && (
         <section className="py-24 bg-warm-charcoal">
           <div className="max-w-[1200px] mx-auto px-6 lg:px-8">
-            <h2 className="font-['Crimson_Pro'] text-4xl text-soft-ivory mb-12">
-              Upcoming Shows
-            </h2>
-            <div className="max-w-3xl space-y-4">
-              {upcomingShows.map((show, index) => (
-                <ShowCard key={index} {...show} />
+            <AnimatedSection direction="up" className="flex items-end justify-between mb-12">
+              <div>
+                <p className="text-xs text-burnished-bronze uppercase tracking-[0.2em] mb-3">
+                  {t('nav.live')}
+                </p>
+                <h2 className="font-['Crimson_Pro'] text-4xl text-soft-ivory">
+                  {t('home.upcoming_shows')}
+                </h2>
+              </div>
+              <Link to="/live" className="hidden md:flex items-center gap-2 text-burnished-bronze hover:text-soft-ivory transition-colors text-sm">
+                {t('home.view_all_shows')} <ArrowRight size={14} />
+              </Link>
+            </AnimatedSection>
+
+            <StaggerContainer className="max-w-3xl space-y-4">
+              {upcomingShows.map(show => (
+                <motion.div key={show.id} variants={staggerItem}>
+                  <ShowCard {...show} />
+                </motion.div>
               ))}
-            </div>
-            <Link to="/live" className="inline-block mt-8 text-burnished-bronze hover:text-soft-ivory transition-colors">
-              View all shows →
-            </Link>
+            </StaggerContainer>
           </div>
         </section>
       )}
 
+      {/* ── Newsletter ────────────────────────────────────────── */}
       <section className="py-24 bg-deep-espresso">
         <div className="max-w-[1200px] mx-auto px-6 lg:px-8">
-          <NewsletterSignup />
+          <AnimatedSection direction="up">
+            <NewsletterSignup />
+          </AnimatedSection>
         </div>
       </section>
     </div>
   );
 }
+

@@ -1,77 +1,51 @@
 import { useState } from 'react';
+import { useTranslation } from 'react-i18next';
 import { LetterCard } from '../components/LetterCard';
 import { NewsletterSignup } from '../components/NewsletterSignup';
+import { AnimatedSection, StaggerContainer, staggerItem } from '../components/AnimatedSection';
+import { letters } from '../../data/content';
+import { motion } from 'motion/react';
+import type { LetterCategory } from '../../data/types';
 
-type LetterCategory = 'all' | 'reflections' | 'behind-the-songs' | 'devotion';
+type FilterValue = 'all' | LetterCategory;
 
 export function Letters() {
-  const [filter, setFilter] = useState<LetterCategory>('all');
+  const [filter, setFilter] = useState<FilterValue>('all');
+  const { t } = useTranslation();
 
-  const letters = [
-    {
-      slug: 'on-writing-love-songs',
-      title: 'On Writing Love Songs',
-      category: 'Reflections',
-      date: '2026-04-15',
-      excerpt: 'I used to think love songs had to be complicated. That they needed metaphors stacked on metaphors, hidden meanings, coded language. But the longer I write, the more I realize that simplicity holds more truth.',
-      readTime: 4
-    },
-    {
-      slug: 'notes-from-the-studio',
-      title: 'Notes from the Studio',
-      category: 'Behind the Songs',
-      date: '2026-04-01',
-      excerpt: 'We recorded Tender Hearts in a small room in Lagos, with afternoon light coming through the windows. There was something about the warmth of that space that shaped every note.',
-      readTime: 3
-    },
-    {
-      slug: 'on-faith-and-softness',
-      title: 'On Faith and Softness',
-      category: 'Devotion',
-      date: '2026-03-20',
-      excerpt: 'Softness is not weakness. This is something I keep coming back to—in my faith, in my music, in how I move through the world. Tenderness is an act of courage.',
-      readTime: 5
-    },
-    {
-      slug: 'the-making-of-beloved',
-      title: 'The Making of Beloved',
-      category: 'Behind the Songs',
-      date: '2026-02-14',
-      excerpt: 'This song started as a voice memo at 2am. I was thinking about the people we carry with us and the ones who shape us even when far away.',
-      readTime: 3
-    }
+  const categories: { label: string; value: FilterValue }[] = [
+    { label: t('letters.filter_all'), value: 'all' },
+    { label: t('letters.filter_reflections'), value: 'Reflections' },
+    { label: t('letters.filter_behind'), value: 'Behind the Songs' },
+    { label: t('letters.filter_devotion'), value: 'Devotion' },
   ];
 
-  const categories: { label: string; value: LetterCategory }[] = [
-    { label: 'All', value: 'all' },
-    { label: 'Reflections', value: 'reflections' },
-    { label: 'Behind the Songs', value: 'behind-the-songs' },
-    { label: 'Devotion', value: 'devotion' }
-  ];
-
-  const filteredLetters = filter === 'all'
-    ? letters
-    : letters.filter(letter => letter.category.toLowerCase().replace(/\s+/g, '-') === filter);
+  const filteredLetters =
+    filter === 'all'
+      ? letters
+      : letters.filter(letter => letter.category === filter);
 
   return (
     <div className="min-h-screen bg-deep-espresso">
       <section className="py-20 md:py-28">
         <div className="max-w-[1200px] mx-auto px-6 lg:px-8">
-          <h1 className="font-['Crimson_Pro'] text-5xl md:text-6xl text-soft-ivory mb-4">
-            Letters
-          </h1>
-          <p className="text-xl text-parchment/80 mb-8 max-w-2xl">
-            Thoughts, stories, and notes from the journey. Written with care, shared with intention.
-          </p>
-          <div className="max-w-xl">
-            <NewsletterSignup />
-          </div>
+          <AnimatedSection direction="up">
+            <h1 className="font-['Crimson_Pro'] text-5xl md:text-6xl text-soft-ivory mb-4">
+              {t('letters.title')}
+            </h1>
+            <p className="text-xl text-parchment/80 mb-8 max-w-2xl">
+              {t('letters.subtitle')}
+            </p>
+            <div className="max-w-xl">
+              <NewsletterSignup />
+            </div>
+          </AnimatedSection>
         </div>
       </section>
 
-      <section className="pb-20">
+      <section className="pb-24">
         <div className="max-w-[1200px] mx-auto px-6 lg:px-8">
-          <div className="flex flex-wrap gap-2 mb-12">
+          <AnimatedSection direction="up" className="flex flex-wrap gap-2 mb-12">
             {categories.map(({ label, value }) => (
               <button
                 key={value}
@@ -85,23 +59,27 @@ export function Letters() {
                 {label}
               </button>
             ))}
-          </div>
+          </AnimatedSection>
 
           {filteredLetters.length > 0 ? (
-            <div className="grid md:grid-cols-2 gap-6">
+            <StaggerContainer className="grid md:grid-cols-2 gap-6">
               {filteredLetters.map(letter => (
-                <LetterCard key={letter.slug} {...letter} />
+                <motion.div key={letter.slug} variants={staggerItem}>
+                  <LetterCard {...letter} />
+                </motion.div>
               ))}
-            </div>
+            </StaggerContainer>
           ) : (
             <div className="text-center py-16">
-              <p className="text-parchment/60 text-lg mb-4">No letters found in this category.</p>
+              <p className="text-parchment/60 text-lg mb-4">
+                No letters found in this category.
+              </p>
               {filter !== 'all' && (
                 <button
                   onClick={() => setFilter('all')}
                   className="text-burnished-bronze hover:text-soft-ivory transition-colors"
                 >
-                  View all letters →
+                  {t('common.view_all')} →
                 </button>
               )}
             </div>
@@ -111,3 +89,4 @@ export function Letters() {
     </div>
   );
 }
+

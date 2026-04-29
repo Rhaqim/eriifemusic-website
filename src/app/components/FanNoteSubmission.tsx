@@ -1,13 +1,18 @@
 import { FormEvent, useState } from 'react';
+import { useTranslation } from 'react-i18next';
 import { Button } from './Button';
+import type { FanNotePayload, SupportedLocale } from '../../data/types';
 
 export function FanNoteSubmission() {
+  const { t, i18n } = useTranslation();
   const [formData, setFormData] = useState({
     message: '',
     name: '',
-    city: ''
+    city: '',
   });
   const [status, setStatus] = useState<'idle' | 'loading' | 'success' | 'error'>('idle');
+  const MAX_CHARS = 280;
+  const remaining = MAX_CHARS - formData.message.length;
 
   const handleSubmit = (e: FormEvent) => {
     e.preventDefault();
@@ -15,100 +20,111 @@ export function FanNoteSubmission() {
 
     setStatus('loading');
 
-    // Simulate API call
+    const payload: FanNotePayload = {
+      message: formData.message.trim(),
+      name: formData.name.trim(),
+      city: formData.city.trim() || undefined,
+      locale: i18n.language as SupportedLocale,
+    };
+
+    // TODO: replace with real API call to your backend / Cloudflare Worker
+    // Example: await fetch('/api/fan-notes', { method: 'POST', body: JSON.stringify(payload) })
+    console.log('Fan note payload:', payload);
+
     setTimeout(() => {
       setStatus('success');
       setFormData({ message: '', name: '', city: '' });
-      setTimeout(() => setStatus('idle'), 5000);
-    }, 1000);
+      setTimeout(() => setStatus('idle'), 6000);
+    }, 800);
   };
 
   if (status === 'success') {
     return (
-      <div className="bg-warm-charcoal border border-border rounded p-8 text-center">
+      <div className="bg-warm-charcoal border border-border rounded-lg p-8 text-center">
         <p className="font-['Crimson_Pro'] text-2xl text-soft-ivory mb-3">
-          Thank you for writing in.
+          {t('forms.success_fan_note').split('.')[0]}.
         </p>
         <p className="text-sm text-parchment/70">
-          Your note has been received and will be reviewed.
+          {t('forms.success_fan_note').split('.').slice(1).join('.').trim()}
         </p>
       </div>
     );
   }
 
   return (
-    <div className="bg-warm-charcoal border border-border rounded p-8">
+    <div className="bg-warm-charcoal border border-border rounded-lg p-8">
       <h3 className="font-['Crimson_Pro'] text-2xl md:text-3xl text-soft-ivory mb-3">
-        A Note for Eri
+        {t('forms.fan_note_title')}
       </h3>
       <p className="text-sm text-parchment/70 mb-6">
-        Leave a short message. Selected notes may be featured here.
+        {t('forms.fan_note_subtitle')}
       </p>
 
       <form onSubmit={handleSubmit} className="space-y-4">
         <div>
-          <label htmlFor="message" className="sr-only">Your message</label>
+          <label htmlFor="fan-message" className="sr-only">Your message</label>
           <textarea
-            id="message"
+            id="fan-message"
             value={formData.message}
             onChange={(e) => setFormData({ ...formData, message: e.target.value })}
-            placeholder="Write a note for Eri…"
+            placeholder={t('forms.message_placeholder')}
             rows={5}
-            className="w-full px-4 py-3 rounded bg-cocoa-brown border border-border text-soft-ivory placeholder:text-parchment/40 focus:outline-none focus:ring-2 focus:ring-burnished-bronze focus-visible:ring-offset-2 focus-visible:ring-offset-warm-charcoal resize-none leading-relaxed disabled:opacity-50 disabled:cursor-not-allowed"
+            className="w-full px-4 py-3 rounded bg-cocoa-brown border border-border text-soft-ivory placeholder:text-parchment/40 focus:outline-none focus:ring-2 focus:ring-burnished-bronze resize-none leading-relaxed disabled:opacity-50 disabled:cursor-not-allowed"
             required
-            maxLength={280}
+            maxLength={MAX_CHARS}
             disabled={status === 'loading'}
           />
-          <p className="text-xs text-parchment/50 mt-2">
-            {formData.message.length}/280 characters
+          <p className={`text-xs mt-2 ${remaining < 20 ? 'text-burnished-bronze' : 'text-parchment/50'}`}>
+            {t('forms.chars_remaining_other', { count: remaining })}
           </p>
         </div>
 
         <div className="grid sm:grid-cols-2 gap-4">
           <div>
-            <label htmlFor="name" className="sr-only">Your name</label>
+            <label htmlFor="fan-name" className="sr-only">Your name</label>
             <input
               type="text"
-              id="name"
+              id="fan-name"
               value={formData.name}
               onChange={(e) => setFormData({ ...formData, name: e.target.value })}
-              placeholder="Your name"
-              className="w-full px-4 py-3 rounded bg-cocoa-brown border border-border text-soft-ivory placeholder:text-parchment/40 focus:outline-none focus:ring-2 focus:ring-burnished-bronze focus-visible:ring-offset-2 focus-visible:ring-offset-warm-charcoal disabled:opacity-50 disabled:cursor-not-allowed"
+              placeholder={t('forms.name_placeholder')}
+              className="w-full px-4 py-3 rounded bg-cocoa-brown border border-border text-soft-ivory placeholder:text-parchment/40 focus:outline-none focus:ring-2 focus:ring-burnished-bronze disabled:opacity-50 disabled:cursor-not-allowed"
               required
               disabled={status === 'loading'}
             />
           </div>
 
           <div>
-            <label htmlFor="city" className="sr-only">Your city</label>
+            <label htmlFor="fan-city" className="sr-only">Your city</label>
             <input
               type="text"
-              id="city"
+              id="fan-city"
               value={formData.city}
               onChange={(e) => setFormData({ ...formData, city: e.target.value })}
-              placeholder="City (optional)"
-              className="w-full px-4 py-3 rounded bg-cocoa-brown border border-border text-soft-ivory placeholder:text-parchment/40 focus:outline-none focus:ring-2 focus:ring-burnished-bronze focus-visible:ring-offset-2 focus-visible:ring-offset-warm-charcoal disabled:opacity-50 disabled:cursor-not-allowed"
+              placeholder={t('forms.city_placeholder')}
+              className="w-full px-4 py-3 rounded bg-cocoa-brown border border-border text-soft-ivory placeholder:text-parchment/40 focus:outline-none focus:ring-2 focus:ring-burnished-bronze disabled:opacity-50 disabled:cursor-not-allowed"
               disabled={status === 'loading'}
             />
           </div>
         </div>
+
+        {status === 'error' && (
+          <p className="text-sm text-red-400">{t('forms.error')}</p>
+        )}
 
         <div className="pt-2">
           <Button
             type="submit"
             variant="primary"
             size="lg"
+            disabled={status === 'loading' || !formData.message.trim()}
             className="w-full sm:w-auto"
-            disabled={status === 'loading'}
           >
-            {status === 'loading' ? 'Sending…' : 'Send Note'}
+            {status === 'loading' ? t('forms.submitting') : t('forms.send_note')}
           </Button>
         </div>
-
-        <p className="text-xs text-parchment/50 italic">
-          Notes are reviewed before being shared.
-        </p>
       </form>
     </div>
   );
 }
+

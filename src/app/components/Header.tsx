@@ -1,17 +1,20 @@
 import { Link, useLocation } from 'react-router';
 import { Button } from './Button';
+import { LanguageSwitcher } from './LanguageSwitcher';
 import { useState } from 'react';
 import { Menu, X } from 'lucide-react';
+import { useTranslation } from 'react-i18next';
 
 export function Header() {
   const location = useLocation();
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+  const { t } = useTranslation();
 
   const navLinks = [
-    { path: '/music', label: 'Music' },
-    { path: '/letters', label: 'Letters' },
-    { path: '/about', label: 'About' },
-    { path: '/live', label: 'Live' }
+    { path: '/music', label: t('nav.music') },
+    { path: '/letters', label: t('nav.letters') },
+    { path: '/about', label: t('nav.about') },
+    { path: '/live', label: t('nav.live') },
   ];
 
   const isActive = (path: string) => location.pathname.startsWith(path);
@@ -41,8 +44,9 @@ export function Header() {
             ))}
           </nav>
 
-          <div className="hidden md:block">
-            <Button variant="primary" size="md">Listen Now</Button>
+          <div className="hidden md:flex items-center gap-4">
+            <LanguageSwitcher />
+            <Button variant="primary" size="md">{t('nav.listen')}</Button>
           </div>
 
           <button
@@ -71,8 +75,9 @@ export function Header() {
                 {link.label}
               </Link>
             ))}
-            <div className="pt-4">
-              <Button variant="primary" size="md" className="w-full">Listen Now</Button>
+            <div className="pt-4 space-y-3">
+              <LanguageSwitcher className="justify-start" />
+              <Button variant="primary" size="md" className="w-full">{t('nav.listen')}</Button>
             </div>
           </nav>
         </div>
@@ -80,3 +85,4 @@ export function Header() {
     </header>
   );
 }
+
