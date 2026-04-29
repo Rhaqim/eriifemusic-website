@@ -1,0 +1,117 @@
+:root {
+  /* Rich Dark Editorial Palette */
+  --deep-espresso: #1F1715;
+  --warm-charcoal: #2A211F;
+  --cocoa-brown: #3B2D29;
+  --oxblood: #6E3D3A;
+  --smoky-plum: #5E4A57;
+  --muted-olive: #6F6C57;
+  --burnished-bronze: #B08B63;
+  --parchment: #E7DCCF;
+  --soft-ivory: #F5EDE3;
+
+  /* Semantic Tokens */
+  --background: var(--deep-espresso);
+  --foreground: var(--parchment);
+  --card: var(--warm-charcoal);
+  --card-foreground: var(--parchment);
+  --primary: var(--oxblood);
+  --primary-foreground: var(--soft-ivory);
+  --secondary: var(--cocoa-brown);
+  --secondary-foreground: var(--parchment);
+  --muted: var(--cocoa-brown);
+  --muted-foreground: var(--burnished-bronze);
+  --border: rgba(224, 220, 207, 0.12);
+  --input-background: var(--warm-charcoal);
+  --ring: var(--oxblood);
+
+  /* Typography Scale - Simplified */
+  --font-size: 16px;
+  --font-weight-normal: 400;
+  --font-weight-medium: 500;
+
+  /* Spacing Scale (8px base) - Simplified */
+  --space-xs: 0.5rem;
+  --space-sm: 1rem;
+  --space-md: 1.5rem;
+  --space-lg: 2rem;
+  --space-xl: 3rem;
+  --space-2xl: 4rem;
+  --space-3xl: 6rem;
+
+  /* Border Radius - Simplified */
+  --radius: 0.75rem;
+  --radius-lg: 1rem;
+
+  /* Content Widths */
+  --max-width-content: 75rem;
+}
+
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-card: var(--card);
+  --color-card-foreground: var(--card-foreground);
+  --color-primary: var(--primary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-secondary: var(--secondary);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-border: var(--border);
+  --color-input-background: var(--input-background);
+  --color-ring: var(--ring);
+  --color-deep-espresso: var(--deep-espresso);
+  --color-warm-charcoal: var(--warm-charcoal);
+  --color-cocoa-brown: var(--cocoa-brown);
+  --color-oxblood: var(--oxblood);
+  --color-smoky-plum: var(--smoky-plum);
+  --color-muted-olive: var(--muted-olive);
+  --color-burnished-bronze: var(--burnished-bronze);
+  --color-parchment: var(--parchment);
+  --color-soft-ivory: var(--soft-ivory);
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-background text-foreground;
+    font-family: "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", system-ui, sans-serif;
+    font-weight: 300;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    background-image: radial-gradient(circle at 20% 50%, rgba(110, 61, 58, 0.03) 0%, transparent 50%),
+                      radial-gradient(circle at 80% 80%, rgba(94, 74, 87, 0.03) 0%, transparent 50%);
+  }
+
+  html {
+    font-size: var(--font-size);
+  }
+
+  h1, h2, h3, h4 {
+    font-family: "Crimson Pro", "Georgia", serif;
+    font-weight: 500;
+    line-height: 1.15;
+    letter-spacing: -0.02em;
+    color: var(--soft-ivory);
+  }
+
+  p {
+    line-height: 1.7;
+    color: var(--parchment);
+    font-weight: 300;
+  }
+
+  a {
+    color: inherit;
+    text-decoration: none;
+    transition: color 0.2s ease, border-color 0.2s ease;
+  }
+
+  a:hover {
+    color: var(--burnished-bronze);
+  }
+}
