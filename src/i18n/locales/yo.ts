@@ -40,6 +40,7 @@ const yo = {
     filter_live: 'Live',
     listen_on: 'Gbọ lórí',
     play_now: 'Ṣe Báyìí',
+    now_playing: 'Tí ń Gbọ',
     tracklist: 'Àtòjọ Orin',
     credits: 'Ẹ̀bùn',
     embed_unavailable: 'Kò lè ṣiṣẹ́. Gbọ lórí:',

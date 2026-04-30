@@ -40,6 +40,7 @@ const fr = {
     filter_live: 'Live',
     listen_on: 'Écouter sur',
     play_now: 'Lire maintenant',
+    now_playing: 'En cours',
     tracklist: 'Tracklist',
     credits: 'Crédits',
     embed_unavailable: 'Lecture indisponible. Écouter sur :',

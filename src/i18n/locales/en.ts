@@ -38,6 +38,7 @@ const en = {
     filter_live: 'Live',
     listen_on: 'Listen on',
     play_now: 'Play Now',
+    now_playing: 'Now Playing',
     tracklist: 'Tracklist',
     credits: 'Credits',
     embed_unavailable: 'Playback unavailable. Listen on:',
