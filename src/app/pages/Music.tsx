@@ -1,6 +1,7 @@
 import { useState } from 'react';
 import { useTranslation } from 'react-i18next';
 import { ReleaseCard } from '../components/ReleaseCard';
+import { StreamingLinks } from '../components/StreamingLinks';
 import { AnimatedSection, StaggerContainer, staggerItem } from '../components/AnimatedSection';
 import { releases } from '../../data/content';
 import { motion } from 'motion/react';
@@ -30,9 +31,10 @@ export function Music() {
             <h1 className="font-['Crimson_Pro'] text-5xl md:text-6xl text-soft-ivory mb-4">
               {t('music.title')}
             </h1>
-            <p className="text-xl text-parchment/80 max-w-2xl">
+            <p className="text-xl text-parchment/80 max-w-2xl mb-8">
               {t('music.subtitle')}
             </p>
+            <StreamingLinks />
           </AnimatedSection>
         </div>
       </section>

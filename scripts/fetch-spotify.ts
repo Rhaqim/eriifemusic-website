@@ -105,16 +105,20 @@ function toReleaseType(albumType: string, totalTracks: number): string {
 async function fetchDiscography(artistId: string, token: string) {
   const h = { Authorization: `Bearer ${token}` };
 
-  // Spotify paginates at 50; fetch all pages
+  // Spotify dev-mode apps cap this endpoint at 10 per page; paginate via page.next
   let url: string | null =
     `https://api.spotify.com/v1/artists/${artistId}/albums` +
-    `?include_groups=album,single&limit=50&market=US`;
+    `?include_groups=album,single&limit=10&market=US`;
 
   const albums: SpotifyAlbum[] = [];
   while (url) {
     const res = await fetch(url, { headers: h });
-    if (!res.ok) throw new Error(`Albums fetch failed: ${res.status}`);
+    if (!res.ok) throw new Error(`Albums fetch failed: ${res.status} — ${await res.text()}`);
     const page = (await res.json()) as { items: SpotifyAlbum[]; next: string | null };
+    if (!Array.isArray(page.items)) {
+      const body = JSON.stringify(page);
+      throw new Error(`Unexpected Spotify response (no items array):\n${body}`);
+    }
     albums.push(...page.items);
     url = page.next;
   }
@@ -241,11 +245,18 @@ async function main() {
     process.exit(1);
   }
 
+  // Strip query params / share-link cruft that users sometimes paste
+  // e.g.  73HQr5WapR3nN1hP2ZTDJg?si=abc&nd=1  →  73HQr5WapR3nN1hP2ZTDJg
+  const cleanArtistId = artistId.split('?')[0].split('#')[0].trim();
+  if (cleanArtistId !== artistId) {
+    console.warn(`⚠️  SPOTIFY_ARTIST_ID contained extra characters — using clean ID: ${cleanArtistId}`);
+  }
+
   console.log('🔐 Authenticating with Spotify…');
   const token = await getToken(clientId, clientSecret);
 
-  console.log(`🎵 Fetching discography for artist ${artistId}…`);
-  const releases = await fetchDiscography(artistId, token);
+  console.log(`🎵 Fetching discography for artist ${cleanArtistId}…`);
+  const releases = await fetchDiscography(cleanArtistId, token);
 
   // ── Write generated file ────────────────────────────────────────────────────
   const outPath = resolve(ROOT, 'src/data/spotify.generated.ts');

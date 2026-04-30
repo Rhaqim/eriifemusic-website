@@ -2,8 +2,9 @@ import { useState } from 'react';
 import { useTranslation } from 'react-i18next';
 import { LetterCard } from '../components/LetterCard';
 import { NewsletterSignup } from '../components/NewsletterSignup';
+import { FanLetterForm } from '../components/FanLetterForm';
 import { AnimatedSection, StaggerContainer, staggerItem } from '../components/AnimatedSection';
-import { letters } from '../../data/content';
+import { letters } from '../../data/letters';
 import { motion } from 'motion/react';
 import type { LetterCategory } from '../../data/types';
 
@@ -84,6 +85,14 @@ export function Letters() {
               )}
             </div>
           )}
+        </div>
+      </section>
+
+      <section className="pb-24">
+        <div className="max-w-[1200px] mx-auto px-6 lg:px-8">
+          <AnimatedSection direction="up">
+            <FanLetterForm />
+          </AnimatedSection>
         </div>
       </section>
     </div>

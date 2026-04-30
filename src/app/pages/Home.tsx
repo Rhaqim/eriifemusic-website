@@ -10,7 +10,8 @@ import { ShowCard } from '../components/ShowCard';
 import { StreamingLinks } from '../components/StreamingLinks';
 import { FanNotesSection } from '../components/FanNotesSection';
 import { AnimatedSection, StaggerContainer, staggerItem } from '../components/AnimatedSection';
-import { releases, letters, shows, fanNotes } from '../../data/content';
+import { releases, shows, fanNotes } from '../../data/content';
+import { letters } from '../../data/letters';
 
 export function Home() {
   const { t } = useTranslation();

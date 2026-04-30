@@ -10,7 +10,6 @@
 import type {
   Release,
   Show,
-  Letter,
   FanNote,
   PressBio,
   PressContact,
@@ -30,103 +29,9 @@ import type {
 //   To revert: git checkout src/data/content.ts
 // ------------------------------------------------------------
 
-// SPOTIFY:START — static fallback. Replace with Spotify data via `pnpm fetch-spotify --apply`
-export const releases: Release[] = [
-  {
-    slug: 'tender-hearts',
-    title: 'Tender Hearts',
-    type: 'EP',
-    year: 2026,
-    coverImage: '',
-    description: 'Five songs about love, memory, and finding softness.',
-    longDescription:
-      'Written during a season of learning to hold tenderness and strength at the same time, Tender Hearts is a collection of five quiet confessions. Recorded in Lagos with afternoon light coming through the windows.',
-    spotifyId: '', // TODO: replace with real Spotify album ID
-    spotifyType: 'album',
-    appleMusicUrl: '', // TODO: replace with Apple Music album URL
-    youtubeId: '', // TODO: replace with YouTube playlist/video ID
-    tracks: [
-      { number: 1, title: 'Opening Prayer', duration: '2:34' },
-      { number: 2, title: 'Tender Hearts', duration: '3:48' },
-      { number: 3, title: 'Beloved', duration: '4:12' },
-      { number: 4, title: 'Quiet Devotion', duration: '3:56' },
-      { number: 5, title: 'Closing Words', duration: '3:02' },
-    ],
-    credits: [
-      'Written and performed by Eri Ife',
-      'Produced by Daniel Omolade',
-      'Mixed by Sarah Chen',
-      'Mastered by James Wright',
-    ],
-  },
-  {
-    slug: 'quiet-devotion',
-    title: 'Quiet Devotion',
-    type: 'single',
-    year: 2026,
-    coverImage: '',
-    description: 'A meditation on faith and closeness.',
-    spotifyId: '', // TODO
-    spotifyType: 'track',
-    tracks: [{ number: 1, title: 'Quiet Devotion', duration: '3:56' }],
-  },
-  {
-    slug: 'beloved',
-    title: 'Beloved',
-    type: 'single',
-    year: 2025,
-    coverImage: '',
-    description: 'An ode to the ones we carry with us.',
-    spotifyId: '', // TODO
-    spotifyType: 'track',
-    tracks: [{ number: 1, title: 'Beloved', duration: '4:12' }],
-  },
-  {
-    slug: 'letters-home',
-    title: 'Letters Home',
-    type: 'album',
-    year: 2025,
-    coverImage: '',
-    description: 'Songs written during a season of reflection.',
-    longDescription:
-      'An eleven-song collection exploring the spaces between faith, love, and memory. Songs written like letters—for the people who shaped us and the places we return to.',
-    spotifyId: '', // TODO
-    spotifyType: 'album',
-    tracks: [
-      { number: 1, title: 'Homecoming', duration: '3:22' },
-      { number: 2, title: 'Letters Home', duration: '4:05' },
-      { number: 3, title: 'Mother Tongue', duration: '3:47' },
-      { number: 4, title: 'River', duration: '4:31' },
-      { number: 5, title: 'Sunday Morning', duration: '3:18' },
-    ],
-    credits: [
-      'Written and performed by Eri Ife',
-      'Produced by Tobi Adeyemi',
-      'Mixed by Aisha Balogun',
-      'Mastered by James Wright',
-    ],
-  },
-  {
-    slug: 'morning-light',
-    title: 'Morning Light',
-    type: 'single',
-    year: 2025,
-    coverImage: '',
-    description: 'About hope arriving quietly, like dawn.',
-    spotifyId: '', // TODO
-    spotifyType: 'track',
-    tracks: [{ number: 1, title: 'Morning Light', duration: '3:41' }],
-  },
-  {
-    slug: 'live-at-terra',
-    title: 'Live at Terra Kulture',
-    type: 'live',
-    year: 2024,
-    coverImage: '',
-    description: 'An intimate evening of songs and stories.',
-    youtubeId: '', // TODO: replace with YouTube video/playlist ID
-  },
-];
+// SPOTIFY:START
+// Using Spotify-fetched data. Run `pnpm fetch-spotify --revert` to go back to static.
+export { releases } from './spotify.generated';
 // SPOTIFY:END
 
 // ------------------------------------------------------------
@@ -175,48 +80,6 @@ export const shows: Show[] = [
 ];
 
 // ------------------------------------------------------------
-// LETTERS
-// ------------------------------------------------------------
-
-export const letters: Letter[] = [
-  {
-    slug: 'on-writing-love-songs',
-    title: 'On Writing Love Songs',
-    category: 'Reflections',
-    date: '2026-04-15',
-    excerpt:
-      'I used to think love songs had to be complicated. That they needed metaphors stacked on metaphors, hidden meanings, coded language. But the longer I write, the more I realize that simplicity holds more truth.',
-    readTime: 4,
-  },
-  {
-    slug: 'notes-from-the-studio',
-    title: 'Notes from the Studio',
-    category: 'Behind the Songs',
-    date: '2026-04-01',
-    excerpt:
-      'We recorded Tender Hearts in a small room in Lagos, with afternoon light coming through the windows. There was something about the warmth of that space that shaped every note.',
-    readTime: 3,
-  },
-  {
-    slug: 'on-faith-and-softness',
-    title: 'On Faith and Softness',
-    category: 'Devotion',
-    date: '2026-03-20',
-    excerpt:
-      'Softness is not weakness. This is something I keep coming back to—in my faith, in my music, in how I move through the world. Tenderness is an act of courage.',
-    readTime: 5,
-  },
-  {
-    slug: 'the-making-of-beloved',
-    title: 'The Making of Beloved',
-    category: 'Behind the Songs',
-    date: '2026-02-14',
-    excerpt:
-      'This song started as a voice memo at 2am. I was thinking about the people we carry with us and the ones who shape us even when far away.',
-    readTime: 3,
-  },
-];
-
 // ------------------------------------------------------------
 // FAN NOTES (approved / featured ones displayed on the site)
 // ------------------------------------------------------------
@@ -313,7 +176,7 @@ export const socialLinks: SocialLink[] = [
 ];
 
 export const streamingPlatforms: StreamingPlatform[] = [
-  { id: 'spotify', name: 'Spotify', url: 'https://open.spotify.com/artist/73HQr5WapR3nN1hP2ZTDJg?si=bmquMcZfSYuXtA7qKa7Q5w&nd=1&dlsi=e22cf753c22343ff' },
+  { id: 'spotify', name: 'Spotify', url: 'https://open.spotify.com/artist/73HQr5WapR3nN1hP2ZTDJg' },
   { id: 'apple-music', name: 'Apple Music', url: 'https://music.apple.com/ng/artist/eri-ife/1251159944' },
   { id: 'youtube', name: 'YouTube Music', url: 'https://youtube.com/@eriifemusic' },
   { id: 'audiomack', name: 'Audiomack', url: 'https://audiomack.com/eriifemusic' },
