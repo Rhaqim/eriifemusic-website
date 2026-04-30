@@ -36,7 +36,7 @@ export function ShowPromo() {
 
   if (!show || !visible) return null;
 
-  const imagePath = `/assets/images/shows/${show.id}.png`;
+  const imagePath = `/assets/images/shows/${show.id}.jpg`;
 
   function dismiss() {
     sessionStorage.setItem(DISMISSED_KEY, show!.id);
