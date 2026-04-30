@@ -41,42 +41,20 @@ export { releases } from './spotify.generated';
 
 export const shows: Show[] = [
   {
-    id: 'show-2026-lagos-jun',
-    date: '2026-06-15',
-    city: 'Lagos',
-    venue: 'Terra Kulture Arena',
-    country: 'Nigeria',
-    countryCode: 'NG',
-    ticketUrl: '#', // TODO: replace with real ticket link
-    status: 'upcoming',
-    doorsTime: '18:30',
-    showTime: '19:30',
-    priceRange: '₦10,000 – ₦25,000',
-  },
-  {
-    id: 'show-2026-london-jul',
-    date: '2026-07-20',
+    id: 'show-2026-london-aug',
+    title: 'Love Is a Happy Place',
+    date: '2026-08-23',
     city: 'London',
-    venue: 'The Jazz Café',
+    venue: 'Colours Hoxton',
+    venueMapUrl: 'https://maps.google.com/?q=Colours+Hoxton,+54+Hoxton+Square,+London+N1+6PB',
     country: 'United Kingdom',
     countryCode: 'GB',
-    ticketUrl: '#', // TODO
+    ticketUrl: 'https://dice.fm/event/dk2x66-love-is-a-happy-place-with-eri-ife-23rd-aug-colours-hoxton-london-tickets',
     status: 'upcoming',
-    doorsTime: '19:00',
-    showTime: '20:00',
-    priceRange: '£15 – £25',
-  },
-  {
-    id: 'show-2026-accra-aug',
-    date: '2026-08-10',
-    city: 'Accra',
-    venue: "Alliance Française d'Accra",
-    country: 'Ghana',
-    countryCode: 'GH',
-    ticketUrl: '#', // TODO
-    status: 'upcoming',
-    priceRange: 'GH₵ 80 – 150',
-  },
+    doorsTime: '18:30',
+    showTime: '19:00',
+    priceRange: '£30',
+  }
 ];
 
 // ------------------------------------------------------------

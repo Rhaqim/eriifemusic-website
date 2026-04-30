@@ -2,6 +2,7 @@ import { Outlet } from 'react-router';
 import { Header } from './Header';
 import { Footer } from './Footer';
 import { MiniPlayer } from './MiniPlayer';
+import { ShowPromo } from './ShowPromo';
 import { MusicPlayerProvider } from '../context/MusicPlayerContext';
 
 export function Layout() {
@@ -14,6 +15,7 @@ export function Layout() {
         </main>
         <Footer />
         <MiniPlayer />
+        <ShowPromo />
       </div>
     </MusicPlayerProvider>
   );

@@ -5,9 +5,11 @@ import type { Show } from '../../data/types';
 type ShowCardProps = Show;
 
 export function ShowCard({
+  title,
   date,
   city,
   venue,
+  venueMapUrl,
   country,
   ticketUrl,
   status = 'upcoming',
@@ -32,9 +34,21 @@ export function ShowCard({
           <time className="text-sm text-burnished-bronze font-medium block mb-2 uppercase tracking-wider">
             {formattedDate}
           </time>
-          <h3 className="font-['Crimson_Pro'] text-2xl text-soft-ivory mb-1">{venue}</h3>
+          <h3 className="font-['Crimson_Pro'] text-2xl text-soft-ivory mb-1">{title}</h3>
           <p className="text-sm text-parchment/70">
-            {city}{country && `, ${country}`}
+            {venueMapUrl ? (
+              <a
+                href={venueMapUrl}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="hover:text-burnished-bronze transition-colors underline underline-offset-2 decoration-dotted"
+              >
+                {venue}
+              </a>
+            ) : (
+              venue
+            )}
+            {city && `, ${city}`}{country && `, ${country}`}
           </p>
 
           <div className="flex flex-wrap gap-x-4 gap-y-1 mt-3">

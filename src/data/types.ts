@@ -60,10 +60,14 @@ export interface Release {
 
 export interface Show {
   id: string;
+  /** Human-readable show title, e.g. "Love Is a Happy Place" */
+  title: string;
   /** ISO 8601 date: "YYYY-MM-DD" */
   date: string;
   city: string;
   venue: string;
+  /** Optional Google Maps URL for the venue */
+  venueMapUrl?: string;
   country: string;
   /** ISO 3166-1 alpha-2 country code, e.g. "NG", "GB" */
   countryCode: string;
