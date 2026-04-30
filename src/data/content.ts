@@ -22,8 +22,15 @@ import type {
 // RELEASES
 // TODO: Replace spotifyId, appleMusicUrl, youtubeId, soundcloudUrl
 //       with real platform IDs/URLs before launch.
+//
+// To auto-populate from Spotify:
+//   1. Copy .env.example → .env and fill in credentials
+//   2. pnpm fetch-spotify           ← generates src/data/spotify.generated.ts
+//   3. pnpm fetch-spotify --apply   ← switches this block to use that file
+//   To revert: git checkout src/data/content.ts
 // ------------------------------------------------------------
 
+// SPOTIFY:START — static fallback. Replace with Spotify data via `pnpm fetch-spotify --apply`
 export const releases: Release[] = [
   {
     slug: 'tender-hearts',
@@ -120,6 +127,7 @@ export const releases: Release[] = [
     youtubeId: '', // TODO: replace with YouTube video/playlist ID
   },
 ];
+// SPOTIFY:END
 
 // ------------------------------------------------------------
 // SHOWS
@@ -287,9 +295,9 @@ Today, Eri continues to write from Lagos, crafting songs that balance vulnerabil
 ];
 
 export const pressContacts: PressContact[] = [
-  { title: 'Bookings', email: 'booking@eriife.com' },
-  { title: 'Press', email: 'press@eriife.com' },
-  { title: 'General', email: 'hello@eriife.com' },
+  { title: 'Bookings', email: 'eriife@iconicstuff.africa' },
+  { title: 'Press', email: 'iconicstuffonly@gmail.com' },
+  { title: 'General', email: 'iconicstuffonly@gmail.com' },
 ];
 
 // ------------------------------------------------------------
@@ -298,16 +306,16 @@ export const pressContacts: PressContact[] = [
 // ------------------------------------------------------------
 
 export const socialLinks: SocialLink[] = [
-  { platform: 'instagram', url: 'https://instagram.com/eriife', handle: '@eriife' },
-  { platform: 'twitter', url: 'https://twitter.com/eriife', handle: '@eriife' },
-  { platform: 'youtube', url: 'https://youtube.com/@eriife', handle: '@eriife' },
-  { platform: 'tiktok', url: 'https://tiktok.com/@eriife', handle: '@eriife' },
+  { platform: 'instagram', url: 'https://instagram.com/eriifemusic', handle: '@eriifemusic' },
+  { platform: 'twitter', url: 'https://twitter.com/eriifemusic', handle: '@eriifemusic' },
+  { platform: 'youtube', url: 'https://youtube.com/@eriifemusic', handle: '@eriifemusic' },
+  { platform: 'tiktok', url: 'https://tiktok.com/@eriifemusic', handle: '@eriifemusic' },
 ];
 
 export const streamingPlatforms: StreamingPlatform[] = [
-  { id: 'spotify', name: 'Spotify', url: 'https://open.spotify.com/artist/REPLACE_ME' },
-  { id: 'apple-music', name: 'Apple Music', url: 'https://music.apple.com/artist/REPLACE_ME' },
-  { id: 'youtube', name: 'YouTube Music', url: 'https://youtube.com/@eriife' },
-  { id: 'audiomack', name: 'Audiomack', url: 'https://audiomack.com/eriife' },
-  { id: 'boomplay', name: 'Boomplay', url: 'https://www.boomplay.com/artists/REPLACE_ME' },
+  { id: 'spotify', name: 'Spotify', url: 'https://open.spotify.com/artist/73HQr5WapR3nN1hP2ZTDJg?si=bmquMcZfSYuXtA7qKa7Q5w&nd=1&dlsi=e22cf753c22343ff' },
+  { id: 'apple-music', name: 'Apple Music', url: 'https://music.apple.com/ng/artist/eri-ife/1251159944' },
+  { id: 'youtube', name: 'YouTube Music', url: 'https://youtube.com/@eriifemusic' },
+  { id: 'audiomack', name: 'Audiomack', url: 'https://audiomack.com/eriifemusic' },
+  // { id: 'boomplay', name: 'Boomplay', url: 'https://www.boomplay.com/artists/eriifemusic' },
 ];

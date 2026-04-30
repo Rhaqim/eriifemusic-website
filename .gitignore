@@ -12,6 +12,9 @@ dist
 dist-ssr
 *.local
 
+# Spotify credentials — never commit
+.env
+
 # Editor directories and files
 .vscode/*
 !.vscode/extensions.json
