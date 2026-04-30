@@ -1,6 +1,8 @@
-name = "eriife-website"
-pages_build_output_dir = "dist"
+name = "eriifemusic-website"
 compatibility_date = "2024-09-23"
 
-[env.production]
-name = "eriife-website"
+[assets]
+directory = "./dist"
+
+# pages_build_output_dir is used by Cloudflare Pages CI — keep for reference
+# pages_build_output_dir = "dist"
