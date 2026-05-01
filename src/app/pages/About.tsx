@@ -2,6 +2,7 @@ import { Link } from 'react-router';
 import { useTranslation } from 'react-i18next';
 import { Button } from '../components/Button';
 import { AnimatedSection } from '../components/AnimatedSection';
+import { spotifyUrl } from '../../data/content';
 
 export function About() {
   const { t } = useTranslation();
@@ -13,7 +14,12 @@ export function About() {
         <div className="max-w-[1200px] mx-auto px-6 lg:px-8">
           <div className="grid lg:grid-cols-2 gap-16 items-center">
             <AnimatedSection direction="left">
-              <div className="aspect-[4/5] rounded-lg bg-gradient-to-br from-cocoa-brown via-smoky-plum/50 to-oxblood/60 shadow-2xl relative overflow-hidden">
+              <div className="aspect-[4/5] rounded-lg shadow-2xl relative overflow-hidden bg-cocoa-brown">
+                <img
+                  src="/assets/images/about_photo.jpg"
+                  alt="Eri Ife"
+                  className="w-full h-full object-cover"
+                />
                 <div className="absolute inset-0 bg-gradient-to-t from-deep-espresso/20 to-transparent" />
               </div>
             </AnimatedSection>
@@ -56,9 +62,9 @@ export function About() {
                 "{t('about.quote')}"
               </p>
               <div className="flex flex-col sm:flex-row gap-4 justify-center">
-                <Link to="/music">
+                <a href={spotifyUrl} target="_blank" rel="noopener noreferrer">
                   <Button variant="primary" size="lg">{t('about.listen')}</Button>
-                </Link>
+                </a>
                 <Link to="/letters">
                   <Button variant="secondary" size="lg">{t('about.read_letters')}</Button>
                 </Link>

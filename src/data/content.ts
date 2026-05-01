@@ -136,7 +136,7 @@ Today, Eri continues to write from Lagos, crafting songs that balance vulnerabil
 ];
 
 export const pressContacts: PressContact[] = [
-  { title: 'Bookings', email: 'eriife@iconicstuff.africa' },
+  { title: 'Bookings', email: 'eriifeesq@gmail.com' },
   { title: 'Press', email: 'iconicstuffonly@gmail.com' },
   { title: 'General', email: 'iconicstuffonly@gmail.com' },
 ];
@@ -160,3 +160,6 @@ export const streamingPlatforms: StreamingPlatform[] = [
   { id: 'audiomack', name: 'Audiomack', url: 'https://audiomack.com/eriifemusic' },
   // { id: 'boomplay', name: 'Boomplay', url: 'https://www.boomplay.com/artists/eriifemusic' },
 ];
+
+// Derived convenience exports — single source of truth
+export const spotifyUrl = streamingPlatforms.find(p => p.id === 'spotify')!.url;

@@ -4,6 +4,7 @@ import { motion } from 'motion/react';
 import { Play, ArrowRight } from 'lucide-react';
 import { Button } from '../components/Button';
 import { NewsletterSignup } from '../components/NewsletterSignup';
+import { spotifyUrl } from '../../data/content';
 import { ReleaseCard } from '../components/ReleaseCard';
 import { LetterCard } from '../components/LetterCard';
 import { ShowCard } from '../components/ShowCard';
@@ -70,10 +71,12 @@ export function Home() {
                 transition={{ duration: 0.8, delay: 0.45 }}
                 className="flex flex-col sm:flex-row gap-4 mb-12"
               >
-                <Button variant="primary" size="lg">
-                  <Play size={18} fill="currentColor" />
-                  {t('hero.cta_listen')}
-                </Button>
+                <a href={spotifyUrl} target="_blank" rel="noopener noreferrer">
+                  <Button variant="primary" size="lg">
+                    <Play size={18} fill="currentColor" />
+                    {t('hero.cta_listen')}
+                  </Button>
+                </a>
                 <Link to="/letters">
                   <Button variant="secondary" size="lg">{t('hero.cta_letters')}</Button>
                 </Link>
@@ -93,8 +96,13 @@ export function Home() {
               initial={{ opacity: 0, scale: 0.96 }}
               animate={{ opacity: 1, scale: 1 }}
               transition={{ duration: 1.2, delay: 0.2, ease: [0.25, 0.1, 0.25, 1] }}
-              className="hidden lg:block aspect-[4/5] rounded-lg bg-gradient-to-br from-cocoa-brown via-smoky-plum/50 to-oxblood/60 shadow-2xl relative overflow-hidden"
+              className="hidden lg:block aspect-[4/5] rounded-lg shadow-2xl relative overflow-hidden bg-cocoa-brown"
             >
+              <img
+                src="/assets/images/hero_photo.jpg"
+                alt="Eri Ife"
+                className="w-full h-full object-cover"
+              />
               <div className="absolute inset-0 bg-gradient-to-t from-deep-espresso/30 to-transparent" />
             </motion.div>
           </div>

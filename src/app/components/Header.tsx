@@ -4,6 +4,7 @@ import { LanguageSwitcher } from './LanguageSwitcher';
 import { useState } from 'react';
 import { Menu, X } from 'lucide-react';
 import { useTranslation } from 'react-i18next';
+import { spotifyUrl } from '../../data/content';
 
 export function Header() {
   const location = useLocation();
@@ -46,7 +47,9 @@ export function Header() {
 
           <div className="hidden md:flex items-center gap-4">
             <LanguageSwitcher />
-            <Button variant="primary" size="md">{t('nav.listen')}</Button>
+            <a href={spotifyUrl} target="_blank" rel="noopener noreferrer">
+              <Button variant="primary" size="md">{t('nav.listen')}</Button>
+            </a>
           </div>
 
           <button
@@ -77,7 +80,9 @@ export function Header() {
             ))}
             <div className="pt-4 space-y-3">
               <LanguageSwitcher className="justify-start" />
-              <Button variant="primary" size="md" className="w-full">{t('nav.listen')}</Button>
+              <a href={spotifyUrl} target="_blank" rel="noopener noreferrer" className="block w-full">
+                <Button variant="primary" size="md" className="w-full">{t('nav.listen')}</Button>
+              </a>
             </div>
           </nav>
         </div>
