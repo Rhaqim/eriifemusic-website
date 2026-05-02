@@ -27,8 +27,18 @@ export function Home() {
 
       {/* ── Hero ─────────────────────────────────────────────── */}
       <section className="relative min-h-[92vh] flex items-center overflow-hidden">
-        {/* Ambient gradient background */}
-        <div className="absolute inset-0">
+        {/* Mobile: full-bleed photo background */}
+        <div className="absolute inset-0 lg:hidden">
+          <img
+            src="/assets/images/hero_photo.jpg"
+            alt=""
+            aria-hidden="true"
+            className="w-full h-full object-cover object-top"
+          />
+          <div className="absolute inset-0 bg-gradient-to-t from-deep-espresso via-deep-espresso/70 to-deep-espresso/30" />
+        </div>
+        {/* Desktop: ambient gradient background only (photo in grid column) */}
+        <div className="absolute inset-0 hidden lg:block">
           <div className="hero-ambient absolute inset-0 bg-gradient-to-br from-oxblood/20 via-smoky-plum/15 to-deep-espresso opacity-90" />
           <div className="absolute inset-0 bg-gradient-to-t from-deep-espresso via-deep-espresso/40 to-transparent" />
         </div>
