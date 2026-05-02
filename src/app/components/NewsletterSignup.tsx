@@ -1,38 +1,40 @@
 import { FormEvent, useState } from 'react';
 import { useTranslation } from 'react-i18next';
 import { Button } from './Button';
-import type { NewsletterPayload, SupportedLocale } from '../../data/types';
+
+// Brevo (Sendinblue) hosted form endpoint
+const BREVO_FORM_URL =
+  'https://f4924d89.sibforms.com/serve/MUIFAOV_IHF7F2k5cZREQ1qTaXg4viFOW1Ma2UtBPyL7eLFPvl_VvrLR_uO4v5LCQt4CQojLIUhMxqQeumBS-SYc88lAT3dqZDpQO3hB2BV3qc196lkaJmKygvYp3phMxSC2iECk6_mNI8YYOffkncGQli4vNWX-s0QY9fFxwS_ootKI4qRGnqEZhOHujjSRXagsCOY4-BqFBRhbZw==';
 
 interface NewsletterSignupProps {
   source?: string;
 }
 
-export function NewsletterSignup({ source }: NewsletterSignupProps) {
+export function NewsletterSignup({ source: _source }: NewsletterSignupProps) {
   const { t, i18n } = useTranslation();
   const [email, setEmail] = useState('');
   const [status, setStatus] = useState<'idle' | 'loading' | 'success' | 'error'>('idle');
 
-  const handleSubmit = (e: FormEvent) => {
+  const handleSubmit = async (e: FormEvent) => {
     e.preventDefault();
     if (!email) return;
 
     setStatus('loading');
 
-    const payload: NewsletterPayload = {
-      email: email.trim(),
-      locale: i18n.language as SupportedLocale,
-      source,
-    };
+    try {
+      const body = new FormData();
+      body.append('EMAIL', email.trim());
+      body.append('email_address_check', ''); // honeypot — must be empty
+      body.append('locale', i18n.language);
 
-    // TODO: replace with real API call to your backend / Cloudflare Worker
-    // Example: await fetch('/api/newsletter', { method: 'POST', body: JSON.stringify(payload) })
-    console.log('Newsletter payload:', payload);
+      // Brevo's hosted form endpoint; no-cors because it returns a redirect
+      await fetch(BREVO_FORM_URL, { method: 'POST', body, mode: 'no-cors' });
 
-    setTimeout(() => {
       setStatus('success');
       setEmail('');
-      setTimeout(() => setStatus('idle'), 6000);
-    }, 800);
+    } catch {
+      setStatus('error');
+    }
   };
 
   if (status === 'success') {

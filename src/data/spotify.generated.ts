@@ -328,28 +328,28 @@ export const releases: Release[] = [
 		],
 		credits: [],
 	},
-	{
-		slug: "naughty-girl",
-		title: "Naughty Girl",
-		type: "single",
-		year: 2020,
-		coverImage:
-			"https://i.scdn.co/image/ab67616d0000b27305a2253baa6f0de84073f879",
-		description: "",
-		longDescription: "",
-		spotifyId: "1Xva1ATA6G0O6Wuajsnd82",
-		spotifyType: "track",
-		appleMusicUrl: "",
-		youtubeId: "",
-		tracks: [
-			{
-				number: 1,
-				title: "Naughty Girl",
-				duration: "3:09",
-			},
-		],
-		credits: [],
-	},
+	// {
+	// 	slug: "naughty-girl",
+	// 	title: "Naughty Girl",
+	// 	type: "single",
+	// 	year: 2020,
+	// 	coverImage:
+	// 		"https://i.scdn.co/image/ab67616d0000b27305a2253baa6f0de84073f879",
+	// 	description: "",
+	// 	longDescription: "",
+	// 	spotifyId: "1Xva1ATA6G0O6Wuajsnd82",
+	// 	spotifyType: "track",
+	// 	appleMusicUrl: "",
+	// 	youtubeId: "",
+	// 	tracks: [
+	// 		{
+	// 			number: 1,
+	// 			title: "Naughty Girl",
+	// 			duration: "3:09",
+	// 		},
+	// 	],
+	// 	credits: [],
+	// },
 	{
 		slug: "dear-future-wife",
 		title: "Dear Future Wife",

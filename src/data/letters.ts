@@ -43,7 +43,7 @@ export const letters: Letter[] = [
         That gap between knowing and feeling is where this song started. I picked up my guitar one day, not trying to write anything special, just trying to sit with something long enough to make sense of it. The chords were simple (I hadn’t played in a minute man, I was going through it), and so was the prayer: “Lord, I know You love me, but help me to feel it again.” Somewhere in that, the first line came, “this is the great romance,” and I just followed it. As I kept writing, something softened on my inside, slowly, but clearly enough. I started to feel that quiet reminder again that God meets me where I am, not where I think I should be.
         There’s something scandalous about how freely God gives His love. The barrier to entry is so low it can feel hard to accept. Believe, confess, that’s all. It feels personal. Like the kind of love people don’t always understand from the outside, where someone goes above and beyond and everyone else is asking why. And the only real answer is, “I just love them.” That’s what this started to feel like. Not something I had to earn, because I would never ever be able to anyway, rather something I was being invited into. It’s overwhelming. It made me want to respond properly.
         I didn’t think the song would become what it has. I thought it was just a moment I needed for myself. But hearing how it’s met people in their own difficult seasons has meant a lot to me. It reminds me that God didn’t just meet me in that moment, He left something in the song for other people too. And every time I come back to it, I’m reminded of that simple truth again, that He meets us where we are, and that will always be enough.
-        Yours sincerely and with all my love,Eri`,
+        Yours sincerely and with all my love,`,
 		readTime: 4,
 	},
 	{
@@ -58,8 +58,7 @@ export const letters: Letter[] = [
         The only place I’ve ever really found steadiness is in Jesus. Walking with Him and being guided by the Holy Spirit helps me hold that tension without feeling pulled apart by it. Some days trust looks like taking a step forward. Other days it looks like waiting or accepting that something isn’t for me, however badly I wanted it to be. I’m learning that both can be right, depending on what He’s doing. It’s not always clear in the moment, but I’m starting to trust that it doesn’t need to be.
         I’m still figuring out what it means to acknowledge Him in all my ways. Not just in big decisions, but in the smaller, quieter parts of life where I’m tempted to rely on myself and move on quickly. I don’t think this verse is asking me to do less, but to stay aware of who’s actually leading. And when I get that right, even imperfectly, things tend to fall into place in a way I couldn’t have planned.
         If you feel that tension too, you don’t have to resolve it on your own. You can bring it to Him and sit with it, just as it is. And with Him, just as you are. 
-        Yours sincerely and with all my love,
-        Eri`,
+        Yours sincerely and with all my love,`,
 		readTime: 4,
 	},
 	// {
@@ -92,8 +91,7 @@ export const letters: Letter[] = [
             It’s a strange thing, putting thoughts out like this. On one hand, it feels personal. Almost private. On the other, there’s a kind of trust in believing it might meet someone at the right time, in the right way. I think that’s the part I hold onto the most. That somewhere, someone might read something here, or hear something in my music, and feel a little more understood. Or a little less alone in whatever they’re navigating.
             And if that happens even quietly, then this is doing what it’s meant to do.
             So, yeah. This is what “Yours, sincerely” is, to me. And what I hope it comes to mean to you. 
-            Yours sincerely, and with all my love,
-            Eri`,
+            Yours sincerely, and with all my love,`,
 		readTime: 5,
 	},
 	// {

@@ -1,22 +1,39 @@
 import { useParams, Link } from 'react-router';
 import { NewsletterSignup } from '../components/NewsletterSignup';
 import { ArrowLeft } from 'lucide-react';
+import { letters } from '../../data/letters';
 
 export function LetterDetail() {
   const { slug } = useParams();
 
-  const letter = {
-    title: 'On Writing Love Songs',
-    category: 'Reflections',
-    date: '2026-04-15',
-    readTime: 4
-  };
+  const letter = letters.find(l => l.slug === slug);
+
+  if (!letter) {
+    return (
+      <div className="min-h-screen bg-deep-espresso flex items-center justify-center px-6">
+        <div className="text-center">
+          <p className="font-['Crimson_Pro'] text-5xl text-soft-ivory mb-4">404</p>
+          <p className="text-parchment/60 mb-8">This letter doesn't exist.</p>
+          <Link to="/letters" className="inline-flex items-center gap-2 text-burnished-bronze hover:text-soft-ivory transition-colors">
+            <ArrowLeft size={18} />
+            Back to Letters
+          </Link>
+        </div>
+      </div>
+    );
+  }
 
   const formattedDate = new Date(letter.date).toLocaleDateString('en-US', {
     month: 'long',
     day: 'numeric',
-    year: 'numeric'
+    year: 'numeric',
   });
+
+  // Split the text body (excerpt) into paragraphs, filtering blank lines
+  const paragraphs = (letter.body ?? letter.excerpt)
+    .split('\n')
+    .map(line => line.trim())
+    .filter(Boolean);
 
   return (
     <div className="min-h-screen bg-deep-espresso">
@@ -43,29 +60,9 @@ export function LetterDetail() {
 
           <div className="prose max-w-none">
             <div className="text-lg text-parchment/80 space-y-6 leading-relaxed">
-              <p>
-                I used to think love songs had to be complicated. That they needed metaphors stacked on metaphors, hidden meanings, coded language. But the longer I write, the more I realize that simplicity holds more truth.
-              </p>
-
-              <p>
-                When I started making music, I was convinced that being obvious was the same as being shallow. I wanted every lyric to have layers, every melody to surprise. And sure, there is a place for that—mystery has its own kind of beauty. But I have learned that directness can be just as deep.
-              </p>
-
-              <p>
-                I think about the love songs that have stayed with me over the years. They are rarely the ones with the cleverest wordplay or the most intricate production. They are the ones that feel like someone reached into my chest and put words to something I could not name myself.
-              </p>
-
-              <p>
-                That is what I am after now. Not cleverness. Not complexity for its own sake. Just truth. The kind of honesty that makes you feel less alone.
-              </p>
-
-              <p>
-                So when I write a love song these days, I try to get out of my own way. I ask myself: what am I really trying to say? And then I say it. Simply. Directly. Without apology.
-              </p>
-
-              <p>
-                Because love—real love, the kind worth singing about—does not need to be dressed up. It just needs to be felt.
-              </p>
+              {paragraphs.map((para, i) => (
+                <p key={i}>{para}</p>
+              ))}
             </div>
 
             <div className="mt-12 pt-8 border-t border-border/30">
@@ -81,3 +78,4 @@ export function LetterDetail() {
     </div>
   );
 }
+
