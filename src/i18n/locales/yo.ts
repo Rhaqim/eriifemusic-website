@@ -19,7 +19,7 @@ const yo = {
   home: {
     note_from_eri: 'Ọ̀rọ̀ láti ọ̀dọ̀ Eri',
     note_body:
-      'Mo ń ronú púpọ̀ nípa ohun tó túmọ̀ sí pé kí a wà rọ̀ ní ayé tó máa ń béèrè kí a le. Àwọn orin wọ̀nyí ni ìdáhùn mi—tàbí ó kéré jù, ìgbìyànjú mi. Mo ní ìrètí pé wọ́n á rí yín dára.',
+      'Mo ti ń ronú púpọ̀ nípa ohun tí ó túmọ̀ sí láti dúró tútù nínú ayé tí ń béèrè pé kí o le. Àwọn orin wọ̀nyí ni bí ìdáhùn ṣe rí sí mi. Mo ní ìrètí pé wọ́n máa bá ọ dé ní àlàáfíà.',
     new_music: 'Orin Tuntun',
     latest_releases: 'Àwọn Ìtọjú Tuntun',
     upcoming_shows: 'Àwọn Ìgbéṣe Ìbọ̀',
@@ -67,7 +67,7 @@ const yo = {
   },
   letters: {
     title: 'Àwọn Lẹ́tà',
-    subtitle: 'Àwọn ìrònú, ìtàn, àti àwọn àkọsílẹ̀ ìrìn àjò. Tí a kọ pẹ̀lú ìgbọ̀nwọ́, tí a pín pẹ̀lú ète.',
+    subtitle: 'Àwọn ìrònú, ìtàn, àti àkíyèsí láti inú ìrìnàjò. Tìrẹ lọ́kàn, pẹ̀lú gbogbo ìfẹ́ mi.',
     filter_all: 'Gbogbo',
     filter_reflections: 'Àwọn Ìrọ̀lẹ́',
     filter_behind: 'Lẹ́yìn Orin',
@@ -77,15 +77,15 @@ const yo = {
   },
   about: {
     title: 'Nípa Eri',
-    subtitle: 'Ohùn fún àwọn ọkàn tó rọ̀. Orin nípa ifẹ́, ìgbàgbọ́, ìrántí, àti igboyà ìdákẹ́jẹ́.',
+    subtitle: 'Mo ń kọ́ fún àwọn oní ọkàn tútù. Àwọn orin nípa ìfẹ́, ìgbàgbọ́, ìrántí, àti ọ̀pọ̀lọpọ̀ irú tí ìfẹ́ fi ń hàn ní àwọn ọjọ́ ayé wa yìí.',
     bio_p1:
-      'Eri Ife jẹ́ akọrin àti olùkọ orin ará Nàìjíríà tí orin rẹ̀ dára bí kíkà lẹ́tà tí ó wá láti ọ̀dọ̀ ọ̀rẹ́ tímọ́tímọ́.',
+      'Eri Ife jẹ́ olórin tí a bí ní Nàìjíríà tí ó sì dá lórí ilẹ̀ Gẹ̀ẹ́sì, tí orin rẹ̀ dá lórí ìfẹ́ àti ìbáṣepọ̀. Ó dagba ní Ìbàdàn, ó sì ń dá iṣẹ́ rẹ̀ sílẹ̀ láti inú ìgbé ayé ìlú òkèèrè, tí ó ń fa láti inú Afro-soul, alternative R&B, àti àkójọpọ̀ gbooro ti àwọn ohun orin Áfíríkà òde òní, tí ń dá àwọn orin tí ó ní ìrònú jinlẹ̀ sílẹ̀ láì padà sẹ́yìn nínú ìtura wọn.',
     bio_p2:
-      'Eri ni a bí tí a sì dàgbà ní Èkó, ó dàgbà ní ilé tí orin jẹ́ ohun pàtàkì—orin ìjọsìn ní Àárọ̀ Ọjọ́ Àárọ̀, Afrobeat ní ìrọlẹ, àti àwọn ìgbàlódé ìyá rẹ̀ tí ó ṣaján idàkẹ́jẹ́.',
+      'Ìkọ̀ rẹ̀ sábà máa ń dojukọ ìfẹ́, ìgbàgbọ́ àti ayé inú ènìyàn. Ọ̀nà ìjíròrò kan wà nínú orin rẹ̀, bí ẹni pé ó ń bá ẹnìkan sọ̀rọ̀ taara dípò kí ó máa ṣe eré fún wọn. Ìwòye yìí ti di apá pàtàkì nínú iṣẹ́ rẹ̀, tí ó ń fún àwọn orin rẹ̀ ní ìmọ̀lára ìsúnmọ́ tí àwọn olùgbọ́ sábà máa ń dì mọ́.',
     bio_p3:
-      'Lẹ́hìn ọ̀pọ̀ ọdún tí ó ń kọ ní ìkọ̀kọ̀, ó bẹ̀rẹ̀ sí pín iṣẹ́ rẹ̀ ní ọdún 2023, tí ó sì tú àwọn singles àti EPs tí àwọn olóran gbọ́ dáradára.',
-    bio_p4:
-      'Lónìí, Eri ń kọ orin tẹ̀lé láti Èkó, ó ń ṣẹ̀dá àwọn orin tí ó ṣèdúróde ìfarapamọ́ àti agbára, ifẹ́ àti òtítọ́.',
+      'Pẹ̀lú orin rẹ̀, ìpìlẹ̀ rẹ̀ gẹ́gẹ́ bí agbẹjọ́rò tún fi àfikún míràn kún bí ó ṣe ń wo ayé àti bí ó ṣe ń sọ ìtàn. Ìṣètò wà nínú ìkọ̀ rẹ̀, pẹ̀lú ìfarabalẹ̀ sí bí a ṣe ń dá ìrònú kalẹ̀ tí a sì ń sọ ọ́ jáde. Bí ohun orin rẹ̀ ṣe ń tẹ̀síwájú, ìwontúnwonsì yẹn láàárín ọgbọ́n, ìgbàgbọ́ àti ìmọ̀lára ṣi ń dúró ní àárín iṣẹ́ rẹ̀, tí ó ń dá àkójọpọ̀ iṣẹ́ tí ó ní ìpìlẹ̀, tí ó jẹ́ ti ara ẹni, tí ó sì yàtọ̀ lọ́nà ìdákẹ́jẹ sílẹ̀.',
+    // bio_p4:
+    //   'Lónìí, Eri ń kọ orin tẹ̀lé láti Èkó, ó ń ṣẹ̀dá àwọn orin tí ó ṣèdúróde ìfarapamọ́ àti agbára, ifẹ́ àti òtítọ́.',
     quote: 'Mo kọ orin fún àwọn tí ó nímọ̀lára jí àti tí ó nifẹ̀ ní ìdákẹ́jẹ́.',
     listen: 'Gbọ Orin',
     read_letters: 'Ka Àwọn Lẹ́tà',

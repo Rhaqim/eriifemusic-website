@@ -8,14 +8,14 @@
 // ============================================================
 
 import type {
-  Release,
-  Show,
-  FanNote,
-  PressBio,
-  PressContact,
-  SocialLink,
-  StreamingPlatform,
-} from './types';
+	Release,
+	Show,
+	FanNote,
+	PressBio,
+	PressContact,
+	SocialLink,
+	StreamingPlatform,
+} from "./types";
 
 // ------------------------------------------------------------
 // RELEASES
@@ -31,7 +31,7 @@ import type {
 
 // SPOTIFY:START
 // Using Spotify-fetched data. Run `pnpm fetch-spotify --revert` to go back to static.
-export { releases } from './spotify.generated';
+export { releases } from "./spotify.generated";
 // SPOTIFY:END
 
 // ------------------------------------------------------------
@@ -40,21 +40,23 @@ export { releases } from './spotify.generated';
 // ------------------------------------------------------------
 
 export const shows: Show[] = [
-  {
-    id: 'show-2026-london-aug',
-    title: 'Love Is a Happy Place',
-    date: '2026-08-23',
-    city: 'London',
-    venue: 'Colours Hoxton',
-    venueMapUrl: 'https://maps.google.com/?q=Colours+Hoxton,+54+Hoxton+Square,+London+N1+6PB',
-    country: 'United Kingdom',
-    countryCode: 'GB',
-    ticketUrl: 'https://dice.fm/event/dk2x66-love-is-a-happy-place-with-eri-ife-23rd-aug-colours-hoxton-london-tickets',
-    status: 'upcoming',
-    doorsTime: '18:30',
-    showTime: '19:00',
-    priceRange: '£30',
-  }
+	{
+		id: "show-2026-london-aug",
+		title: "Love Is a Happy Place",
+		date: "2026-08-23",
+		city: "London",
+		venue: "Colours Hoxton",
+		venueMapUrl:
+			"https://maps.google.com/?q=Colours+Hoxton,+54+Hoxton+Square,+London+N1+6PB",
+		country: "United Kingdom",
+		countryCode: "GB",
+		ticketUrl:
+			"https://dice.fm/event/dk2x66-love-is-a-happy-place-with-eri-ife-23rd-aug-colours-hoxton-london-tickets",
+		status: "upcoming",
+		doorsTime: "18:30",
+		showTime: "19:00",
+		priceRange: "£30",
+	},
 ];
 
 // ------------------------------------------------------------
@@ -63,51 +65,51 @@ export const shows: Show[] = [
 // ------------------------------------------------------------
 
 export const fanNotes: FanNote[] = [
-  {
-    id: '1',
-    message: 'Your songs found me in a quiet season and stayed.',
-    name: 'Adanna',
-    city: 'Abuja',
-    country: 'NG',
-    date: '2026-04-20',
-    status: 'featured',
-  },
-  {
-    id: '2',
-    message: 'This music feels like a letter I did not know I needed.',
-    name: 'Marcus',
-    city: 'London',
-    country: 'GB',
-    date: '2026-04-18',
-    status: 'featured',
-  },
-  {
-    id: '3',
-    message: 'Thank you for making softness feel strong.',
-    name: 'Chiamaka',
-    city: 'Lagos',
-    country: 'NG',
-    date: '2026-04-15',
-    status: 'approved',
-  },
-  {
-    id: '4',
-    message: 'There is so much warmth in these songs.',
-    name: 'Samuel',
-    city: 'Accra',
-    country: 'GH',
-    date: '2026-04-12',
-    status: 'approved',
-  },
-  {
-    id: '5',
-    message: 'Your music sounds like honesty.',
-    name: 'Zara',
-    city: 'Toronto',
-    country: 'CA',
-    date: '2026-04-10',
-    status: 'approved',
-  },
+	{
+		id: "1",
+		message: "Your songs found me in a quiet season and stayed.",
+		name: "Adanna",
+		city: "Abuja",
+		country: "NG",
+		date: "2026-04-20",
+		status: "featured",
+	},
+	{
+		id: "2",
+		message: "This music feels like a letter I did not know I needed.",
+		name: "Marcus",
+		city: "London",
+		country: "GB",
+		date: "2026-04-18",
+		status: "featured",
+	},
+	{
+		id: "3",
+		message: "Thank you for making softness feel strong.",
+		name: "Chiamaka",
+		city: "Lagos",
+		country: "NG",
+		date: "2026-04-15",
+		status: "approved",
+	},
+	{
+		id: "4",
+		message: "There is so much warmth in these songs.",
+		name: "Samuel",
+		city: "Accra",
+		country: "GH",
+		date: "2026-04-12",
+		status: "approved",
+	},
+	{
+		id: "5",
+		message: "Your music sounds like honesty.",
+		name: "Zara",
+		city: "Toronto",
+		country: "CA",
+		date: "2026-04-10",
+		status: "approved",
+	},
 ];
 
 // ------------------------------------------------------------
@@ -115,30 +117,32 @@ export const fanNotes: FanNote[] = [
 // ------------------------------------------------------------
 
 export const pressBios: PressBio[] = [
-  {
-    length: 'short',
-    text: 'Eri Ife is a Nigerian singer-songwriter whose music feels like reading letters from a close friend. Drawing from R&B, soul, and folk traditions, his songs explore love, faith, memory, and the tender parts of being human.',
-  },
-  {
-    length: 'medium',
-    text: 'Eri Ife is a Nigerian singer-songwriter whose music feels like reading letters from a close friend—intimate, reflective, and achingly honest. Born and raised in Lagos, he began sharing his work in 2023, releasing a series of singles and EPs that quickly resonated with listeners seeking something warmer, quieter, and more emotionally grounded. His music has been described as "a softer place to return to" and "songs that feel like home."',
-  },
-  {
-    length: 'long',
-    text: `Eri Ife is a Nigerian singer-songwriter whose music feels like reading letters from a close friend—intimate, reflective, and achingly honest. Drawing from R&B, soul, and folk traditions, his songs explore love, faith, memory, and the tender parts of being human.
+	{
+		length: "short",
+		text: "Eri Ife is a Nigerian-born, UK-based artist whose music reads like a letter you weren’t expecting but needed. Blending Afro-soul, alternative R&B and soft, melodic storytelling, he writes with a quiet honesty about love, faith and the inner life. His work leans intimate rather than loud, drawing listeners in with emotion that feels considered, not performed. Whether he’s singing to his God & Father, a partner or reflecting on growth, there’s a sense that every song is addressed to someone real.",
+	},
+	{
+		length: "medium",
+		text: `Eri Ife is a Nigerian-born, UK-based singer and songwriter crafting music that feels personal without becoming insular. His sound sits somewhere between Afro-soul and alternative R&B, carried by warm melodies and writing that pays attention to detail. There’s a reflective quality to his work that shows up in how he approaches love, faith and self-awareness, often choosing restraint over spectacle.
 
-Born and raised in Lagos, Eri grew up in a household where music was constant—gospel on Sunday mornings, Afrobeat in the evenings, and his mother's old soul records filling the quiet in between. He started writing songs as a teenager, using music as a way to process what he could not say out loud.
+Projects like his debut album, “Yours Sincerely, Eri Ife”, hint at the core of his artistic identity. There’s a clear throughline of communication in his music, as though each song is written with a specific person in mind. That sense of intention carries into his broader world, where he continues to build a body of work grounded in sincerity, emotional clarity and a deep desire to connect rather than impress.`,
+	},
+	{
+		length: "long",
+		text: `Eri Ife is a Nigerian-born, UK-based artist whose music is rooted in love & connection. Raised in Ibadan and now creating from the diaspora, he draws from Afro-soul, alternative R&B and a broader palette of contemporary African sound, shaping songs that feel thoughtful without losing their warmth. There’s a quiet confidence in his approach, that prioritises meaning and emotional accuracy over volume.
 
-After years of writing in private, he began sharing his work in 2023, releasing a series of singles and EPs that quickly resonated with listeners seeking something warmer, quieter, and more emotionally grounded. His music has been described as "a softer place to return to" and "songs that feel like home."
+His writing often centres on love, faith and the inner life, but not in a way that feels distant or abstract. There’s a conversational quality to his music, as though he’s speaking directly to someone rather than performing at them. That perspective has become a defining thread in his work, giving his songs a sense of closeness that listeners tend to hold onto.
 
-Today, Eri continues to write from Lagos, crafting songs that balance vulnerability with strength, romance with realism, and faith with honest questioning.`,
-  },
+This comes into sharper focus on his debut album, “Yours Sincerely, Eri Ife”, a project that leans fully into the idea of music as an expression of love, and as correspondence. The tone is deliberate and unguarded, built on the feeling of saying something you mean and trusting it will land where it’s supposed to. It’s a direction that aligns naturally with his wider catalogue, reinforcing an identity built on sincerity rather than persona.
+
+Alongside his music, Eri Ife’s background as a lawyer adds another layer to how he sees the world and tells stories. There’s structure in his writing, a sense of care in how thoughts are formed and expressed. As his sound continues to evolve, that balance between intellect, faith and emotion remains at the centre of his work, shaping a catalogue that feels grounded, personal and quietly distinct.`,
+	},
 ];
 
 export const pressContacts: PressContact[] = [
-  { title: 'Bookings', email: 'eriifeesq@gmail.com' },
-  { title: 'Press', email: 'iconicstuffonly@gmail.com' },
-  { title: 'General', email: 'iconicstuffonly@gmail.com' },
+	{ title: "Bookings", email: "eriifeesq@gmail.com" },
+	{ title: "Press", email: "iconicstuffonly@gmail.com" },
+	{ title: "General", email: "iconicstuffonly@gmail.com" },
 ];
 
 // ------------------------------------------------------------
@@ -147,19 +151,51 @@ export const pressContacts: PressContact[] = [
 // ------------------------------------------------------------
 
 export const socialLinks: SocialLink[] = [
-  { platform: 'instagram', url: 'https://instagram.com/eriifemusic', handle: '@eriifemusic' },
-  { platform: 'twitter', url: 'https://twitter.com/eriifemusic', handle: '@eriifemusic' },
-  { platform: 'youtube', url: 'https://youtube.com/@eriifemusic', handle: '@eriifemusic' },
-  { platform: 'tiktok', url: 'https://tiktok.com/@eriifemusic', handle: '@eriifemusic' },
+	{
+		platform: "instagram",
+		url: "https://instagram.com/eriifemusic",
+		handle: "@eriifemusic",
+	},
+	{
+		platform: "twitter",
+		url: "https://twitter.com/eriifemusic",
+		handle: "@eriifemusic",
+	},
+	{
+		platform: "youtube",
+		url: "https://youtube.com/@eriifemusic",
+		handle: "@eriifemusic",
+	},
+	{
+		platform: "tiktok",
+		url: "https://tiktok.com/@eriifemusic",
+		handle: "@eriifemusic",
+	},
 ];
 
 export const streamingPlatforms: StreamingPlatform[] = [
-  { id: 'spotify', name: 'Spotify', url: 'https://open.spotify.com/artist/73HQr5WapR3nN1hP2ZTDJg' },
-  { id: 'apple-music', name: 'Apple Music', url: 'https://music.apple.com/ng/artist/eri-ife/1251159944' },
-  { id: 'youtube', name: 'YouTube Music', url: 'https://youtube.com/@eriifemusic' },
-  { id: 'audiomack', name: 'Audiomack', url: 'https://audiomack.com/eriifemusic' },
-  // { id: 'boomplay', name: 'Boomplay', url: 'https://www.boomplay.com/artists/eriifemusic' },
+	{
+		id: "spotify",
+		name: "Spotify",
+		url: "https://open.spotify.com/artist/73HQr5WapR3nN1hP2ZTDJg",
+	},
+	{
+		id: "apple-music",
+		name: "Apple Music",
+		url: "https://music.apple.com/ng/artist/eri-ife/1251159944",
+	},
+	{
+		id: "youtube",
+		name: "YouTube Music",
+		url: "https://youtube.com/@eriifemusic",
+	},
+	{
+		id: "audiomack",
+		name: "Audiomack",
+		url: "https://audiomack.com/eriifemusic",
+	},
+	// { id: 'boomplay', name: 'Boomplay', url: 'https://www.boomplay.com/artists/eriifemusic' },
 ];
 
 // Derived convenience exports — single source of truth
-export const spotifyUrl = streamingPlatforms.find(p => p.id === 'spotify')!.url;
+export const spotifyUrl = streamingPlatforms.find(p => p.id === "spotify")!.url;

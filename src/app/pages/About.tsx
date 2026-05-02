@@ -47,7 +47,7 @@ export function About() {
               <p>{t('about.bio_p1')}</p>
               <p>{t('about.bio_p2')}</p>
               <p>{t('about.bio_p3')}</p>
-              <p>{t('about.bio_p4')}</p>
+              {/* <p>{t('about.bio_p4')}</p> */}
             </div>
           </AnimatedSection>
         </div>

@@ -17,7 +17,7 @@ const en = {
   home: {
     note_from_eri: 'A note from Eri',
     note_body:
-      "I've been thinking a lot about what it means to stay soft in a world that keeps asking you to harden. These songs are my answer—or at least my attempt at one. I hope they find you well.",
+      "I've been thinking a lot about what it means to stay soft in a world that keeps asking you to harden. These songs are what the answers look like to me. I hope they find you well. 🤎",
     new_music: 'New Music',
     latest_releases: 'Latest Releases',
     upcoming_shows: 'Upcoming Shows',
@@ -66,7 +66,7 @@ const en = {
   letters: {
     title: 'Letters',
     subtitle:
-      'Thoughts, stories, and notes from the journey. Written with care, shared with intention.',
+      'Thoughts, stories, and notes from the journey. Yours sincerely, with all my love.',
     filter_all: 'All',
     filter_reflections: 'Reflections',
     filter_behind: 'Behind the Songs',
@@ -77,15 +77,15 @@ const en = {
   about: {
     title: 'About Eri',
     subtitle:
-      'A voice for the tender-hearted. Songs about love, faith, memory, and the quiet courage it takes to stay soft.',
+      `I'm writing for the tender-hearted. Songs about love, faith, memory, and the many things love looks like in these days of our lives.`,
     bio_p1:
-      'Eri Ife is a Nigerian singer-songwriter whose music feels like reading letters from a close friend—intimate, reflective, and achingly honest. Drawing from R&B, soul, and folk traditions, his songs explore love, faith, memory, and the tender parts of being human.',
+      'Eri Ife is a Nigerian-born, UK-based artist whose music is rooted in love & connection. Raised in Ibadan and now creating from the diaspora, he draws from Afro-soul, alternative R&B and a broader palette of contemporary African sound, shaping songs that feel thoughtful without losing their warmth.',
     bio_p2:
-      'Born and raised in Lagos, Eri grew up in a household where music was constant—gospel on Sunday mornings, Afrobeat in the evenings, and his mother\'s old soul records filling the quiet in between. He started writing songs as a teenager, using music as a way to process what he could not say out loud.',
+      'His writing often centres on love, faith and the inner life. There’s a conversational tilt to his music, as though he’s speaking directly to someone rather than performing to them. That perspective has become a defining thread in his work, giving his songs a sense of closeness that listeners tend to hold onto.',
     bio_p3:
-      'After years of writing in private, he began sharing his work in 2023, releasing a series of singles and EPs that quickly resonated with listeners seeking something warmer, quieter, and more emotionally grounded.',
-    bio_p4:
-      'Today, Eri continues to write from Lagos, crafting songs that balance vulnerability with strength, romance with realism, and faith with honest questioning.',
+      'Alongside his music, Eri Ife’s background as a lawyer adds another layer to how he sees the world and tells stories. There’s structure in his writing, a sense of care in how thoughts are formed and expressed. As his sound continues to evolve, that balance between intellect, faith and emotion remains at the centre of his work, shaping a catalogue that feels grounded, personal and quietly distinct.',
+    // bio_p4:
+    //   'Today, Eri continues to write from Lagos, crafting songs that balance vulnerability with strength, romance with realism, and faith with honest questioning.',
     quote: 'I write songs for people who feel deeply and love quietly.',
     listen: 'Listen to the Music',
     read_letters: 'Read the Letters',

@@ -19,7 +19,7 @@ const fr = {
   home: {
     note_from_eri: 'Un mot d’Eri',
     note_body:
-      'Je réfléchis beaucoup à ce que cela signifie de rester doux dans un monde qui ne cesse de demander de durcir. Ces chansons sont ma réponse—ou du moins ma tentative. J’espère qu’elles vous trouveront bien.',
+      'J’ai beaucoup réfléchi à ce que signifie rester doux dans un monde qui ne cesse de nous demander de nous endurcir. Ces chansons sont à quoi ressemblent les réponses pour moi. J’espère qu’elles vous parviendront en douceur.',
     new_music: 'Nouvelle musique',
     latest_releases: 'Dernières sorties',
     upcoming_shows: 'Prochains concerts',
@@ -68,7 +68,7 @@ const fr = {
   letters: {
     title: 'Lettres',
     subtitle:
-      'Des pensées, des histoires et des notes du voyage. Écrites avec soin, partagées avec intention.',
+      'Pensées, histoires et notes tirées du voyage. Bien à vous, avec tout mon amour.',
     filter_all: 'Tout',
     filter_reflections: 'Réflexions',
     filter_behind: 'Dans les coulisses',
@@ -79,15 +79,15 @@ const fr = {
   about: {
     title: 'À propos d’Eri',
     subtitle:
-      'Une voix pour les cœurs tendres. Des chansons sur l’amour, la foi, la mémoire et le courage tranquille de rester doux.',
+      'J’écris pour les cœurs tendres. Des chansons sur l’amour, la foi, la mémoire, et les multiples formes que prend l’amour dans les jours que nous vivons.',
     bio_p1:
-      'Eri Ife est un auteur-compositeur-interprète nigérian dont la musique ressemble à la lecture de lettres d’un ami proche—intime, réfléchie et désespérément honnête. Puisant dans les traditions R&B, soul et folk, ses chansons explorent l’amour, la foi, la mémoire et les parties tendres de l’humanité.',
+      'Eri Ife est un artiste nigérian basé au Royaume-Uni, dont la musique est ancrée dans l’amour et la connexion. Né et élevé à Ibadan, il crée aujourd’hui depuis la diaspora, puisant dans l’afro-soul, le R&B alternatif et une palette plus large de sonorités africaines contemporaines, pour façonner des chansons réfléchies sans perdre leur chaleur.',
     bio_p2:
-      'Né et élevé à Lagos, Eri a grandi dans une maison où la musique était omniprésente—gospel le dimanche matin, Afrobeat le soir, et les vieux disques soul de sa mère remplissant le silence.',
+      'Son écriture se concentre souvent sur l’amour, la foi et la vie intérieure. Sa musique a une qualité conversationnelle, comme s’il s’adressait directement à quelqu’un plutôt que de se produire devant lui. Cette perspective est devenue un fil conducteur dans son travail, donnant à ses chansons une proximité à laquelle les auditeurs s’attachent.',
     bio_p3:
-      'Après des années à écrire en privé, il a commencé à partager son travail en 2023, publiant une série de singles et d’EPs qui ont rapidement trouvé un écho auprès des auditeurs.',
-    bio_p4:
-      'Aujourd’hui, Eri continue d’écrire depuis Lagos, créant des chansons qui équilibrent vulnérabilité et force, romantisme et réalisme, foi et questionnement honnête.',
+      'Parallèlement à sa musique, son parcours de juriste ajoute une autre dimension à sa manière de voir le monde et de raconter des histoires. Il y a une structure dans son écriture, un soin apporté à la manière dont les idées sont formées et exprimées. À mesure que son univers sonore évolue, cet équilibre entre intellect, foi et émotion reste au cœur de son travail, façonnant un catalogue ancré, personnel et discrètement distinct.',
+    // bio_p4:
+    //   'Aujourd’hui, Eri continue d’écrire depuis Lagos, créant des chansons qui équilibrent vulnérabilité et force, romantisme et réalisme, foi et questionnement honnête.',
     quote: 'J’écris des chansons pour les gens qui ressentent profondément et aiment en silence.',
     listen: 'Écouter la musique',
     read_letters: 'Lire les lettres',
