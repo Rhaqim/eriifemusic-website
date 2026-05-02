@@ -57,7 +57,7 @@ export function Live() {
               </h3>
               <p className="text-parchment/80 mb-6">{t('live.book_description')}</p>
               <a
-                href="mailto:iconicstuffonly@gmail.com"
+                href="mailto:eriifeesq@gmail.com"
                 className="inline-block px-6 py-3 rounded bg-oxblood text-soft-ivory hover:bg-[#7D4744] transition-colors"
               >
                 {t('live.contact_booking')}

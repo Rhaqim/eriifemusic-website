@@ -19,7 +19,7 @@ const fr = {
   home: {
     note_from_eri: 'Un mot d’Eri',
     note_body:
-      'J’ai beaucoup réfléchi à ce que signifie rester doux dans un monde qui ne cesse de nous demander de nous endurcir. Ces chansons sont à quoi ressemblent les réponses pour moi. J’espère qu’elles vous parviendront en douceur.',
+      'J’ai beaucoup réfléchi à ce que signifie rester doux dans un monde qui ne cesse de nous demander de nous endurcir. Ces chansons sont à quoi ressemblent les réponses pour moi. J’espère qu’elles vous parviendront en douceur. 🤎',
     new_music: 'Nouvelle musique',
     latest_releases: 'Dernières sorties',
     upcoming_shows: 'Prochains concerts',
@@ -32,7 +32,7 @@ const fr = {
   music: {
     title: 'Musique',
     subtitle:
-      'Une collection de chansons écrites comme des lettres—sur l’amour, la foi, la mémoire, et les parties tendres de l’humanité.',
+      'Mon parcours se trouve dans ces chansons. Écoutez, et venez avec moi.',
     filter_all: 'Tout',
     filter_albums: 'Albums',
     filter_eps: 'EPs',

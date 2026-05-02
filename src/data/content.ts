@@ -119,21 +119,19 @@ export const fanNotes: FanNote[] = [
 export const pressBios: PressBio[] = [
 	{
 		length: "short",
-		text: "Eri Ife is a Nigerian-born, UK-based artist whose music reads like a letter you weren’t expecting but needed. Blending Afro-soul, alternative R&B and soft, melodic storytelling, he writes with a quiet honesty about love, faith and the inner life. His work leans intimate rather than loud, drawing listeners in with emotion that feels considered, not performed. Whether he’s singing to his God & Father, a partner or reflecting on growth, there’s a sense that every song is addressed to someone real.",
+		text: "Eri Ife is a Nigerian singer-songwriter whose music feels like reading letters from a close friend. Drawing from R&B, soul, and folk traditions, his songs explore love, faith, memory, and the tender parts of being human.",
 	},
 	{
 		length: "medium",
-		text: `Eri Ife is a Nigerian-born, UK-based singer and songwriter crafting music that feels personal without becoming insular. His sound sits somewhere between Afro-soul and alternative R&B, carried by warm melodies and writing that pays attention to detail. There’s a reflective quality to his work that shows up in how he approaches love, faith and self-awareness, often choosing restraint over spectacle.
+		text: `Eri Ife is a Nigerian-born, UK-based artist whose music feels like a letter you weren’t expecting but needed. Blending Afro-soul, alternative R&B and soft, melodic storytelling, he writes with quiet honesty about love, faith and the inner life.
 
-Projects like his debut album, “Yours Sincerely, Eri Ife”, hint at the core of his artistic identity. There’s a clear throughline of communication in his music, as though each song is written with a specific person in mind. That sense of intention carries into his broader world, where he continues to build a body of work grounded in sincerity, emotional clarity and a deep desire to connect rather than impress.`,
+His work is intimate and reflective, drawing listeners in with emotion that feels thoughtful and sincere. Whether he’s singing to his God and Father, a partner, or reflecting on growth, each song carries a sense of being addressed to someone real.`,
 	},
 	{
 		length: "long",
-		text: `Eri Ife is a Nigerian-born, UK-based artist whose music is rooted in love & connection. Raised in Ibadan and now creating from the diaspora, he draws from Afro-soul, alternative R&B and a broader palette of contemporary African sound, shaping songs that feel thoughtful without losing their warmth. There’s a quiet confidence in his approach, that prioritises meaning and emotional accuracy over volume.
+		text: `Eri Ife is a Nigerian-born, UK-based artist whose music is rooted in love & connection. Raised in Ibadan and now creating from the diaspora, he draws from Afro-soul, alternative R&B and a broader palette of contemporary African sound, shaping songs that feel thoughtful without losing their warmth.
 
-His writing often centres on love, faith and the inner life, but not in a way that feels distant or abstract. There’s a conversational quality to his music, as though he’s speaking directly to someone rather than performing at them. That perspective has become a defining thread in his work, giving his songs a sense of closeness that listeners tend to hold onto.
-
-This comes into sharper focus on his debut album, “Yours Sincerely, Eri Ife”, a project that leans fully into the idea of music as an expression of love, and as correspondence. The tone is deliberate and unguarded, built on the feeling of saying something you mean and trusting it will land where it’s supposed to. It’s a direction that aligns naturally with his wider catalogue, reinforcing an identity built on sincerity rather than persona.
+His writing often centres on love, faith and the inner life. There’s a conversational tilt to his music, as though he’s speaking directly to someone rather than performing to them. That perspective has become a defining thread in his work, giving his songs a sense of closeness that listeners tend to hold onto.
 
 Alongside his music, Eri Ife’s background as a lawyer adds another layer to how he sees the world and tells stories. There’s structure in his writing, a sense of care in how thoughts are formed and expressed. As his sound continues to evolve, that balance between intellect, faith and emotion remains at the centre of his work, shaping a catalogue that feels grounded, personal and quietly distinct.`,
 	},

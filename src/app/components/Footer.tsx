@@ -29,12 +29,12 @@ export function Footer() {
         <div className="grid md:grid-cols-4 gap-16 mb-16">
           {/* Brand */}
           <div className="md:col-span-1">
-            <Link to="/" className="font-['Crimson_Pro'] text-2xl font-medium text-soft-ivory block mb-4">
-              Eri Ife
+            <Link to="/" aria-label="Eri Ife — Home" className="block mb-4">
+              <img src="/assets/images/logo.png" alt="Eri Ife" className="h-10 w-auto" />
             </Link>
-            <p className="text-sm text-parchment/70 leading-relaxed mb-6">
+            {/* <p className="text-sm text-parchment/70 leading-relaxed mb-6">
               {t('footer.tagline')}
-            </p>
+            </p> */}
             {/* Social links */}
             <div className="flex flex-wrap gap-2">
               {socialLinks.map((link) => (

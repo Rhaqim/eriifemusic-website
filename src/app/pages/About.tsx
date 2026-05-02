@@ -58,9 +58,9 @@ export function About() {
         <div className="max-w-[1200px] mx-auto px-6 lg:px-8">
           <AnimatedSection direction="up">
             <div className="max-w-3xl mx-auto text-center">
-              <p className="font-['Crimson_Pro'] text-3xl md:text-4xl text-soft-ivory mb-10 leading-relaxed">
+              {/* <p className="font-['Crimson_Pro'] text-3xl md:text-4xl text-soft-ivory mb-10 leading-relaxed">
                 "{t('about.quote')}"
-              </p>
+              </p> */}
               <div className="flex flex-col sm:flex-row gap-4 justify-center">
                 <a href={spotifyUrl} target="_blank" rel="noopener noreferrer">
                   <Button variant="primary" size="lg">{t('about.listen')}</Button>

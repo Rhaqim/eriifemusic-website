@@ -19,7 +19,7 @@ const yo = {
   home: {
     note_from_eri: 'Ọ̀rọ̀ láti ọ̀dọ̀ Eri',
     note_body:
-      'Mo ti ń ronú púpọ̀ nípa ohun tí ó túmọ̀ sí láti dúró tútù nínú ayé tí ń béèrè pé kí o le. Àwọn orin wọ̀nyí ni bí ìdáhùn ṣe rí sí mi. Mo ní ìrètí pé wọ́n máa bá ọ dé ní àlàáfíà.',
+      'Mo ti ń ronú púpọ̀ nípa ohun tí ó túmọ̀ sí láti dúró tútù nínú ayé tí ń béèrè pé kí o le. Àwọn orin wọ̀nyí ni bí ìdáhùn ṣe rí sí mi. Mo ní ìrètí pé wọ́n máa bá ọ dé ní àlàáfíà. 🤎',
     new_music: 'Orin Tuntun',
     latest_releases: 'Àwọn Ìtọjú Tuntun',
     upcoming_shows: 'Àwọn Ìgbéṣe Ìbọ̀',
@@ -32,7 +32,7 @@ const yo = {
   music: {
     title: 'Orin',
     subtitle:
-      'Àkójọ àwọn orin tí a kọ bí lẹ́tà—nípa ifẹ́, ìgbàgbọ́, ìrántí, àti ẹ̀yà rírọ̀ ìwàláàyè ènìyàn.',
+      'Ìrìnàjò mi wà nínú àwọn orin wọ̀nyí. Gbọ́, kí o sì bá mi lọ.',
     filter_all: 'Gbogbo',
     filter_albums: 'Àlbọ́mù',
     filter_eps: 'EPs',

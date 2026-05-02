@@ -30,7 +30,7 @@ const en = {
   music: {
     title: 'Music',
     subtitle:
-      'A collection of songs written like letters—about love, faith, memory, and the tender parts of being human.',
+      'My journey is in these songs. Listen, and come along',
     filter_all: 'All',
     filter_albums: 'Albums',
     filter_eps: 'EPs',
