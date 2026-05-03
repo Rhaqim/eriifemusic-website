@@ -12,6 +12,7 @@ interface NewsletterSignupProps {
 
 export function NewsletterSignup({ source: _source }: NewsletterSignupProps) {
   const { t, i18n } = useTranslation();
+  const [firstName, setFirstName] = useState('');
   const [email, setEmail] = useState('');
   const [status, setStatus] = useState<'idle' | 'loading' | 'success' | 'error'>('idle');
 
@@ -24,6 +25,7 @@ export function NewsletterSignup({ source: _source }: NewsletterSignupProps) {
     try {
       const body = new FormData();
       body.append('EMAIL', email.trim());
+      if (firstName.trim()) body.append('FIRSTNAME', firstName.trim());
       body.append('email_address_check', ''); // honeypot — must be empty
       body.append('locale', i18n.language);
 
@@ -32,6 +34,7 @@ export function NewsletterSignup({ source: _source }: NewsletterSignupProps) {
 
       setStatus('success');
       setEmail('');
+      setFirstName('');
     } catch {
       setStatus('error');
     }
@@ -41,7 +44,9 @@ export function NewsletterSignup({ source: _source }: NewsletterSignupProps) {
     return (
       <div className="text-center py-8">
         <p className="text-lg text-burnished-bronze font-['Crimson_Pro']">
-          {t('forms.success_newsletter')}
+          {firstName.trim()
+            ? `${firstName.trim()}, ${t('forms.success_newsletter')}`
+            : t('forms.success_newsletter')}
         </p>
       </div>
     );
@@ -55,19 +60,31 @@ export function NewsletterSignup({ source: _source }: NewsletterSignupProps) {
       <p className="text-base text-parchment/80 mb-8">
         {t('forms.newsletter_subtitle')}
       </p>
-      <form onSubmit={handleSubmit} className="flex flex-col sm:flex-row gap-3">
+      <form onSubmit={handleSubmit} className="flex flex-col gap-3">
         <input
-          type="email"
-          value={email}
-          onChange={(e) => setEmail(e.target.value)}
-          placeholder={t('forms.email_placeholder')}
-          className="flex-1 px-5 py-4 rounded bg-warm-charcoal border border-border text-soft-ivory placeholder:text-parchment/40 focus:outline-none focus:ring-2 focus:ring-burnished-bronze disabled:opacity-50 disabled:cursor-not-allowed"
-          required
+          type="text"
+          value={firstName}
+          onChange={(e) => setFirstName(e.target.value)}
+          placeholder={t('forms.name_placeholder')}
+          autoComplete="given-name"
+          className="w-full px-5 py-4 rounded bg-warm-charcoal border border-border text-soft-ivory placeholder:text-parchment/40 focus:outline-none focus:ring-2 focus:ring-burnished-bronze disabled:opacity-50 disabled:cursor-not-allowed"
           disabled={status === 'loading'}
         />
-        <Button type="submit" variant="primary" size="lg" disabled={status === 'loading'}>
-          {status === 'loading' ? t('forms.submitting') : t('forms.subscribe')}
-        </Button>
+        <div className="flex flex-col sm:flex-row gap-3">
+          <input
+            type="email"
+            value={email}
+            onChange={(e) => setEmail(e.target.value)}
+            placeholder={t('forms.email_placeholder')}
+            autoComplete="email"
+            className="flex-1 px-5 py-4 rounded bg-warm-charcoal border border-border text-soft-ivory placeholder:text-parchment/40 focus:outline-none focus:ring-2 focus:ring-burnished-bronze disabled:opacity-50 disabled:cursor-not-allowed"
+            required
+            disabled={status === 'loading'}
+          />
+          <Button type="submit" variant="primary" size="lg" disabled={status === 'loading'}>
+            {status === 'loading' ? t('forms.submitting') : t('forms.subscribe')}
+          </Button>
+        </div>
       </form>
       {status === 'error' && (
         <p className="text-sm text-red-400 mt-3">{t('forms.error')}</p>

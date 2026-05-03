@@ -77,6 +77,8 @@ export function FanLetterForm() {
         <input type="text" name="_honey" className="hidden" tabIndex={-1} autoComplete="off" aria-hidden="true" />
         {/* Pass locale so the email template can reference it */}
         <input type="hidden" name="locale" value={i18n.language} />
+        {/* title is used by the template for Organisation — not collected from fans */}
+        <input type="hidden" name="title" value="—" />
 
         <div className="grid sm:grid-cols-2 gap-5">
           <div>
@@ -85,7 +87,7 @@ export function FanLetterForm() {
             </label>
             <input
               id="fan_name"
-              name="fan_name"
+              name="name"
               type="text"
               required
               value={name}
@@ -101,7 +103,7 @@ export function FanLetterForm() {
             </label>
             <input
               id="fan_email"
-              name="fan_email"
+              name="time"
               type="email"
               value={email}
               onChange={e => setEmail(e.target.value)}
@@ -117,7 +119,7 @@ export function FanLetterForm() {
           </label>
           <textarea
             id="fan_message"
-            name="fan_message"
+            name="message"
             required
             rows={8}
             maxLength={MAX_CHARS}

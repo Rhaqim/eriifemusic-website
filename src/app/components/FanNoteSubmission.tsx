@@ -1,10 +1,15 @@
-import { FormEvent, useState } from 'react';
+import { FormEvent, useRef, useState } from 'react';
 import { useTranslation } from 'react-i18next';
+import emailjs from '@emailjs/browser';
 import { Button } from './Button';
-import type { FanNotePayload, SupportedLocale } from '../../data/types';
+
+const SERVICE_ID  = import.meta.env.VITE_EMAILJS_SERVICE_ID  as string | undefined;
+const TEMPLATE_ID = import.meta.env.VITE_EMAILJS_TEMPLATE_ID as string | undefined;
+const PUBLIC_KEY  = import.meta.env.VITE_EMAILJS_PUBLIC_KEY  as string | undefined;
 
 export function FanNoteSubmission() {
   const { t, i18n } = useTranslation();
+  const formRef = useRef<HTMLFormElement>(null);
   const [formData, setFormData] = useState({
     message: '',
     name: '',
@@ -14,28 +19,21 @@ export function FanNoteSubmission() {
   const MAX_CHARS = 280;
   const remaining = MAX_CHARS - formData.message.length;
 
-  const handleSubmit = (e: FormEvent) => {
+  const configured = SERVICE_ID && TEMPLATE_ID && PUBLIC_KEY;
+
+  const handleSubmit = async (e: FormEvent) => {
     e.preventDefault();
-    if (!formData.message.trim()) return;
+    if (!formData.message.trim() || !configured || !formRef.current) return;
 
     setStatus('loading');
 
-    const payload: FanNotePayload = {
-      message: formData.message.trim(),
-      name: formData.name.trim(),
-      city: formData.city.trim() || undefined,
-      locale: i18n.language as SupportedLocale,
-    };
-
-    // TODO: replace with real API call to your backend / Cloudflare Worker
-    // Example: await fetch('/api/fan-notes', { method: 'POST', body: JSON.stringify(payload) })
-    console.log('Fan note payload:', payload);
-
-    setTimeout(() => {
+    try {
+      await emailjs.sendForm(SERVICE_ID, TEMPLATE_ID, formRef.current, { publicKey: PUBLIC_KEY });
       setStatus('success');
       setFormData({ message: '', name: '', city: '' });
-      setTimeout(() => setStatus('idle'), 6000);
-    }, 800);
+    } catch {
+      setStatus('error');
+    }
   };
 
   if (status === 'success') {
@@ -60,11 +58,17 @@ export function FanNoteSubmission() {
         {t('forms.fan_note_subtitle')}
       </p>
 
-      <form onSubmit={handleSubmit} className="space-y-4">
+      <form ref={formRef} onSubmit={handleSubmit} className="space-y-4">
+        {/* Honeypot */}
+        <input type="text" name="_honey" className="hidden" tabIndex={-1} autoComplete="off" aria-hidden="true" />
+        <input type="hidden" name="locale" value={i18n.language} />
+        {/* title maps to Organisation in the template — used here as note source */}
+        <input type="hidden" name="title" value="Fan Note (Home page)" />
         <div>
           <label htmlFor="fan-message" className="sr-only">Your message</label>
           <textarea
             id="fan-message"
+            name="message"
             value={formData.message}
             onChange={(e) => setFormData({ ...formData, message: e.target.value })}
             placeholder={t('forms.message_placeholder')}
@@ -85,6 +89,7 @@ export function FanNoteSubmission() {
             <input
               type="text"
               id="fan-name"
+              name="name"
               value={formData.name}
               onChange={(e) => setFormData({ ...formData, name: e.target.value })}
               placeholder={t('forms.name_placeholder')}
@@ -99,6 +104,7 @@ export function FanNoteSubmission() {
             <input
               type="text"
               id="fan-city"
+              name="time"
               value={formData.city}
               onChange={(e) => setFormData({ ...formData, city: e.target.value })}
               placeholder={t('forms.city_placeholder')}
