@@ -14,6 +14,7 @@ export function NewsletterSignup({ source: _source }: NewsletterSignupProps) {
   const { t, i18n } = useTranslation();
   const [firstName, setFirstName] = useState('');
   const [email, setEmail] = useState('');
+  const [submittedName, setSubmittedName] = useState('');
   const [status, setStatus] = useState<'idle' | 'loading' | 'success' | 'error'>('idle');
 
   const handleSubmit = async (e: FormEvent) => {
@@ -23,7 +24,7 @@ export function NewsletterSignup({ source: _source }: NewsletterSignupProps) {
     setStatus('loading');
 
     try {
-      const body = new FormData();
+      const body = new URLSearchParams();
       body.append('EMAIL', email.trim());
       if (firstName.trim()) body.append('FIRSTNAME', firstName.trim());
       body.append('email_address_check', ''); // honeypot — must be empty
@@ -32,6 +33,7 @@ export function NewsletterSignup({ source: _source }: NewsletterSignupProps) {
       // Brevo's hosted form endpoint; no-cors because it returns a redirect
       await fetch(BREVO_FORM_URL, { method: 'POST', body, mode: 'no-cors' });
 
+      setSubmittedName(firstName.trim());
       setStatus('success');
       setEmail('');
       setFirstName('');
@@ -44,8 +46,8 @@ export function NewsletterSignup({ source: _source }: NewsletterSignupProps) {
     return (
       <div className="text-center py-8">
         <p className="text-lg text-burnished-bronze font-['Crimson_Pro']">
-          {firstName.trim()
-            ? `${firstName.trim()}, ${t('forms.success_newsletter')}`
+          {submittedName
+            ? `${submittedName}, ${t('forms.success_newsletter')}`
             : t('forms.success_newsletter')}
         </p>
       </div>
