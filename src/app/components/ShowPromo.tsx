@@ -3,8 +3,24 @@ import { Link } from 'react-router';
 import { X, Ticket, MapPin, Calendar, Clock } from 'lucide-react';
 import { AnimatePresence, motion } from 'motion/react';
 import { shows } from '../../data/content';
+import type { Show } from '../../data/types';
 
 const DISMISSED_KEY = 'eriife-show-promo-dismissed';
+
+/**
+ * The promo is fully self-disabling: it only renders for a show that is both
+ * marked `upcoming` in src/data/content.ts *and* still in the future. Once the
+ * last show's date passes, nothing renders. Add the next show to `shows` with
+ * `status: 'upcoming'` and a future date and the popup comes back on its own —
+ * no code change needed here.
+ */
+function isStillUpcoming(show: Show) {
+  if (show.status !== 'upcoming') return false;
+  // Compare against the start of today so a show doesn't vanish mid-event.
+  const today = new Date();
+  today.setHours(0, 0, 0, 0);
+  return new Date(show.date).getTime() >= today.getTime();
+}
 
 function formatDate(iso: string) {
   return new Date(iso).toLocaleDateString('en-GB', {
@@ -19,8 +35,10 @@ export function ShowPromo() {
   const [open, setOpen] = useState(false);
   const [visible, setVisible] = useState(false);
 
-  // Find the first upcoming show
-  const show = shows.find(s => s.status === 'upcoming');
+  // Find the soonest show that hasn't happened yet
+  const show = shows
+    .filter(isStillUpcoming)
+    .sort((a, b) => a.date.localeCompare(b.date))[0];
 
   useEffect(() => {
     if (!show) return;

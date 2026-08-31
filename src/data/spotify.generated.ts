@@ -1,10 +1,74 @@
 // AUTO-GENERATED — do not edit manually.
 // Run: pnpm fetch-spotify
-// Last synced: 2026-04-30T21:23:17.517Z
+// Last synced: 2026-08-31T21:45:49.046Z
 
 import type { Release } from "./types";
 
 export const releases: Release[] = [
+	{
+		slug: "rubicon",
+		title: "Rubicon",
+		type: "EP",
+		year: 2026,
+		coverImage:
+			"https://i.scdn.co/image/ab67616d0000b27379d17c973ee7068312dfed0b",
+		description: "",
+		longDescription: "",
+		spotifyId: "6HCANn0QUmNGYlTJ5x2DCW",
+		spotifyType: "album",
+		appleMusicUrl: "",
+		youtubeId: "",
+		tracks: [
+			{
+				number: 1,
+				title: "Torun Tori",
+				duration: "2:46",
+			},
+			{
+				number: 2,
+				title: "Ebenezer",
+				duration: "3:03",
+			},
+			{
+				number: 3,
+				title: "Aroma",
+				duration: "3:10",
+			},
+			{
+				number: 4,
+				title: "Rubicon",
+				duration: "2:34",
+			},
+			{
+				number: 5,
+				title: "KSMD",
+				duration: "3:35",
+			},
+		],
+		credits: [],
+	},
+	{
+		slug: "aroma",
+		title: "Aroma",
+		type: "single",
+		year: 2026,
+		coverImage:
+			"https://i.scdn.co/image/ab67616d0000b273d65fbb0220a005d470388c6f",
+		description: "",
+		longDescription: "",
+		spotifyId: "5DmVPK3uvMeVpB1yFClKEb",
+		spotifyType: "track",
+		appleMusicUrl: "",
+		youtubeId: "",
+		tracks: [
+			{
+				number: 1,
+				title: "Aroma",
+				duration: "3:10",
+			},
+		],
+		credits: [],
+	},
 	{
 		slug: "torun-tori",
 		title: "Torun Tori",
@@ -109,7 +173,6 @@ export const releases: Release[] = [
 		],
 		credits: [],
 	},
-
 	{
 		slug: "mr-romantic",
 		title: "Mr Romantic",
@@ -328,28 +391,75 @@ export const releases: Release[] = [
 		],
 		credits: [],
 	},
-	// {
-	// 	slug: "naughty-girl",
-	// 	title: "Naughty Girl",
-	// 	type: "single",
-	// 	year: 2020,
-	// 	coverImage:
-	// 		"https://i.scdn.co/image/ab67616d0000b27305a2253baa6f0de84073f879",
-	// 	description: "",
-	// 	longDescription: "",
-	// 	spotifyId: "1Xva1ATA6G0O6Wuajsnd82",
-	// 	spotifyType: "track",
-	// 	appleMusicUrl: "",
-	// 	youtubeId: "",
-	// 	tracks: [
-	// 		{
-	// 			number: 1,
-	// 			title: "Naughty Girl",
-	// 			duration: "3:09",
-	// 		},
-	// 	],
-	// 	credits: [],
-	// },
+	{
+		slug: "naughty-girl",
+		title: "Naughty Girl",
+		type: "single",
+		year: 2020,
+		coverImage:
+			"https://i.scdn.co/image/ab67616d0000b27305a2253baa6f0de84073f879",
+		description: "",
+		longDescription: "",
+		spotifyId: "1Xva1ATA6G0O6Wuajsnd82",
+		spotifyType: "track",
+		appleMusicUrl: "",
+		youtubeId: "",
+		tracks: [
+			{
+				number: 1,
+				title: "Naughty Girl",
+				duration: "3:09",
+			},
+		],
+		credits: [],
+	},
+	{
+		slug: "esquire",
+		title: "Esquire",
+		type: "EP",
+		year: 2020,
+		coverImage:
+			"https://i.scdn.co/image/ab67616d0000b273e3b58cb8344822cbde48f00a",
+		description: "",
+		longDescription: "",
+		spotifyId: "0mY4VSuz4vQ5WD39uHwbem",
+		spotifyType: "album",
+		appleMusicUrl: "",
+		youtubeId: "",
+		tracks: [
+			{
+				number: 1,
+				title: "Esquire",
+				duration: "2:54",
+			},
+			{
+				number: 2,
+				title: "Ba Mi Lo",
+				duration: "2:57",
+			},
+			{
+				number: 3,
+				title: "Dusty Love",
+				duration: "3:40",
+			},
+			{
+				number: 4,
+				title: "Way Out",
+				duration: "3:29",
+			},
+			{
+				number: 5,
+				title: "Satisfied",
+				duration: "4:20",
+			},
+			{
+				number: 6,
+				title: "Thankful",
+				duration: "3:25",
+			},
+		],
+		credits: [],
+	},
 	{
 		slug: "dear-future-wife",
 		title: "Dear Future Wife",

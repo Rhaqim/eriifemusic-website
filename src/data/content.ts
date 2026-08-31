@@ -52,12 +52,15 @@ export const shows: Show[] = [
 		countryCode: "GB",
 		ticketUrl:
 			"https://dice.fm/event/dk2x66-love-is-a-happy-place-with-eri-ife-23rd-aug-colours-hoxton-london-tickets",
-		status: "upcoming",
+		status: "past",
 		doorsTime: "18:30",
 		showTime: "19:00",
 		priceRange: "£30",
 	},
 ];
+
+// Add the next show above with `status: "upcoming"` and a future `date` —
+// the site (Home, Live) and the ShowPromo popup will pick it up automatically.
 
 // ------------------------------------------------------------
 // ------------------------------------------------------------
